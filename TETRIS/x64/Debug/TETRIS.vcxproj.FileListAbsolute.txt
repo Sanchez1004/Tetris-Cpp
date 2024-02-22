@@ -1,0 +1,2 @@
+D:\Code\Daniel\C++\PROJECTS\TETRIS\x64\Debug\raylib.dll
+D:\Code\Daniel\C++\PROJECTS\TETRIS\TETRIS\x64\Debug\TETRIS.vcxproj.Up2Date
