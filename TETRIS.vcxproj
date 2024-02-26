@@ -19,11 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\block.cpp" />
+    <ClCompile Include="src\blocks.cpp" />
+    <ClCompile Include="src\colors.cpp" />
     <ClCompile Include="src\gridcpp.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\position.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\block.h" />
+    <ClInclude Include="src\colors.h" />
     <ClInclude Include="src\grid.h" />
+    <ClInclude Include="src\position.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

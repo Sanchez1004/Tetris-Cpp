@@ -15,7 +15,6 @@
 *.vcxproj.filters
 *.vcxproj.user
 
-
 # Carpetas de compilación de Visual Studio
 build/
 Debug/
@@ -30,4 +29,13 @@ x86/
 # Otros archivos y carpetas ignorados
 .DS_Store
 Thumbs.db
+
+# Archivos específicos de Raylib
+raylib.log
+raylib.trace
+
+# Archivos de recursos de Raylib
+resources.h
+resources.c
+
 
