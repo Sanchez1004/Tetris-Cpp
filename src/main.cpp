@@ -12,6 +12,7 @@ int main() {
 	grid.Print();
 
 	ZBlock block = ZBlock();
+	block.Move(3, 4);
 
 	while (WindowShouldClose() == false) {
 		BeginDrawing();

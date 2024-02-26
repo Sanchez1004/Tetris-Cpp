@@ -2,6 +2,8 @@
 #include <raylib.h>
 #include <vector>
 
+using std::vector;
+
 extern const Color darkGrey;
 extern const Color green;
 extern const Color red;
@@ -11,4 +13,4 @@ extern const Color purple;
 extern const Color cyan;
 extern const Color blue;
 
-std::vector<Color> GetCellColors();
+vector<Color> GetCellColors();

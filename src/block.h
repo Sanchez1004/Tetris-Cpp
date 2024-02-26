@@ -4,15 +4,21 @@
 #include "position.h"
 #include "colors.h"
 
+using std::vector;
+
 class Block {
 public:
 	Block();
 	void Draw();
+	void Move(int rows, int columns);
+	vector<Position> GetCellPositions();
 	int id;
-	std::map<int, std::vector<Position>> cells;
+	std::map <int, vector<Position>> cells;
 
 private:
 	int cellSize;
 	int rotationState;
-	std::vector<Color> colors;
+	vector<Color> colors;
+	int rowOffSet;
+	int columnOffSet;
 };

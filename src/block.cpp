@@ -4,11 +4,28 @@ Block::Block() {
 	cellSize = 30;
 	rotationState = 0;
 	colors = GetCellColors();
+	rowOffSet = 0;
+	columnOffSet = 0;
 }
 
 void Block::Draw() {
-	std::vector<Position> tiles = cells[rotationState];
+	vector<Position> tiles = GetCellPositions();
 	for (Position item : tiles) {
 		DrawRectangle(item.column * cellSize + 1, item.row * cellSize + 1, cellSize - 1, cellSize - 1, colors[id]);
 	}
+}
+
+void Block::Move(int rows, int columns) {
+	rowOffSet += rows;
+	columnOffSet = columns;
+}
+
+vector<Position> Block::GetCellPositions() {
+	vector<Position> tiles = cells[rotationState];
+	vector<Position> movedTiles;
+	for (Position item : tiles) {
+		Position newPosition = Position(item.row + rowOffSet, item.column + columnOffSet);
+		movedTiles.push_back(newPosition);
+	}
+	return movedTiles;
 }
