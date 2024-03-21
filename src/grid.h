@@ -10,6 +10,7 @@ public:
 	void Initialize();	
 	void Draw();
 	bool IsCellOutside(int row, int column);
+	bool isCellEmpty(int row, int column);
 	int grid[20][10];
 
 private:

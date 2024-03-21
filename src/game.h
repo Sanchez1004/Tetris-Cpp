@@ -18,7 +18,9 @@ public:
 
 private:
 	void RotateBlock();	
+	void LockBlock();
 	bool IsBlockOutside();
+	bool BlockFits();
 	vector<Block> blocks;
 	Block currentBlock;
 	Block nextBlock;
