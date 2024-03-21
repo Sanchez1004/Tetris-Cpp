@@ -1,25 +1,18 @@
 #include <raylib.h>
-#include <iostream>
-#include "grid.h"
-#include "blocks.cpp"
+#include "game.h"
 
 int main() {
 	InitWindow(300, 600, "Tetris");
 	SetTargetFPS(60);
 	Color bg = { 44, 44, 127, 255 };
 
-	Grid grid = Grid();
-	grid.Print();
-
-	ZBlock block = ZBlock();
-	block.Move(3, 4);
+	Game game = Game();
 
 	while (WindowShouldClose() == false) {
+		game.HandleInput();
 		BeginDrawing();
 		ClearBackground(bg);
-		grid.Draw();
-		block.Draw();
-
+		game.Draw();
 		EndDrawing();
 	}
 

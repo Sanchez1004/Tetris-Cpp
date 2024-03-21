@@ -17,7 +17,21 @@ void Block::Draw() {
 
 void Block::Move(int rows, int columns) {
 	rowOffSet += rows;
-	columnOffSet = columns;
+	columnOffSet += columns;
+}
+
+void Block::Rotate() {
+	rotationState++;
+	if (rotationState == cells.size()) {
+		rotationState = 0;
+	}
+}
+
+void Block::UndoRotation() {
+	rotationState--;
+	if (rotationState == -1) {
+		rotationState = cells.size() - 1;
+	}
 }
 
 vector<Position> Block::GetCellPositions() {
