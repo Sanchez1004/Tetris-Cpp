@@ -15,10 +15,12 @@ public:
 	void MoveBlockRigth();
 	void MoveBlockDown();
 	Grid grid;
+	bool gameOver;
 
 private:
 	void RotateBlock();	
 	void LockBlock();
+	void Reset();
 	bool IsBlockOutside();
 	bool BlockFits();
 	vector<Block> blocks;

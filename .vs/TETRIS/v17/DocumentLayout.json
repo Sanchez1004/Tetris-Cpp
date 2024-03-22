@@ -11,16 +11,16 @@
       "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:src\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\grid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:src\\grid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:src\\grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\block.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -54,16 +54,17 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\main.cpp",
               "RelativeDocumentMoniker": "src\\main.cpp",
               "ToolTip": "D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\main.cpp",
               "RelativeToolTip": "src\\main.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAuwBcAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAuwBgAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-21T21:15:31.539Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -76,20 +77,22 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-02-26T18:12:23.888Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "grid.h",
               "DocumentMoniker": "D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\grid.h",
               "RelativeDocumentMoniker": "src\\grid.h",
               "ToolTip": "D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\grid.h",
               "RelativeToolTip": "src\\grid.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-02-22T03:35:39.622Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -141,22 +144,23 @@
               "RelativeDocumentMoniker": "src\\game.cpp",
               "ToolTip": "D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\game.cpp",
               "RelativeToolTip": "src\\game.cpp",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAABMAAAAAAAAA",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAAAH4AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-26T17:53:40.7Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "grid.cpp",
               "DocumentMoniker": "D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\grid.cpp",
               "RelativeDocumentMoniker": "src\\grid.cpp",
               "ToolTip": "D:\\Code\\Daniel\\C\u002B\u002B\\PROJECTS\\Tetris-Cpp\\src\\grid.cpp",
               "RelativeToolTip": "src\\grid.cpp",
-              "ViewState": "AQIAABIAAAAAAAAAAAAmwCEAAAAAAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAuwD8AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-22T04:39:02.492Z"
+              "WhenOpened": "2024-02-22T04:39:02.492Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
