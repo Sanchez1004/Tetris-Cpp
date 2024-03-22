@@ -7,6 +7,7 @@ Game::Game() {
 	currentBlock = GetRandomBlock();
 	nextBlock = GetRandomBlock();
 	gameOver = false;
+	pause = false;
 }
 
 Block Game::GetRandomBlock() {
@@ -36,17 +37,29 @@ void Game::HandleInput(){
 	}
 	switch (keyPressed)
 	{
+	// This kind of definition makes posible to handle both ARROWS and WASD to control the blocks
 	case KEY_LEFT:
+	case KEY_A:
 		MoveBlockLeft();
 		break;
 	case KEY_RIGHT:
+	case KEY_D:
 		MoveBlockRigth();
 		break;
 	case KEY_DOWN:
+	case KEY_S:
 		MoveBlockDown();
 		break;
 	case KEY_UP:
+	case KEY_W:
 		RotateBlock();
+		break;
+	case KEY_R:
+		Reset();
+		break;
+	case KEY_T:
+		// If pause = true -> false, if pause = false -> true
+		pause = !pause;
 		break;
 	}
 }
@@ -70,7 +83,7 @@ void Game::MoveBlockRigth() {
 }
 
 void Game::MoveBlockDown() {
-	if (!gameOver) {
+	if (!gameOver && !pause) {
 		currentBlock.Move(1, 0);
 		if (IsBlockOutside() || BlockFits() == false) {
 			currentBlock.Move(-1, 0);
@@ -126,4 +139,5 @@ void Game::Reset() {
 	blocks = GetAllBlocks();
 	currentBlock = GetRandomBlock();
 	nextBlock = GetRandomBlock();
+	pause = false;
 }

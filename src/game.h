@@ -16,6 +16,7 @@ public:
 	void MoveBlockDown();
 	Grid grid;
 	bool gameOver;
+	bool pause;
 
 private:
 	void RotateBlock();	
