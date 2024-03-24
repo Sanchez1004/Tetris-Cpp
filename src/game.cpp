@@ -7,7 +7,9 @@ Game::Game() {
 	currentBlock = GetRandomBlock();
 	nextBlock = GetRandomBlock();
 	gameOver = false;
-	pause = false;
+	gamePaused = false;
+	maxScoreReached = false;
+	score = 0;
 }
 
 Block Game::GetRandomBlock() {
@@ -49,6 +51,10 @@ void Game::HandleInput(){
 	case KEY_DOWN:
 	case KEY_S:
 		MoveBlockDown();
+		// If the game is paused the score will no update even if we press de W or DOWN key
+		if (!gamePaused) {
+			UpdateScore(0, 1);
+		}
 		break;
 	case KEY_UP:
 	case KEY_W:
@@ -59,13 +65,13 @@ void Game::HandleInput(){
 		break;
 	case KEY_T:
 		// If pause = true -> false, if pause = false -> true
-		pause = !pause;
+		gamePaused = !gamePaused;
 		break;
 	}
 }
 
 void Game::MoveBlockLeft() {
-	if (!gameOver) {
+	if (!gameOver && !gamePaused) {
 		currentBlock.Move(0, -1);
 		if (IsBlockOutside() || BlockFits() == false) {
 			currentBlock.Move(0, 1);
@@ -74,7 +80,7 @@ void Game::MoveBlockLeft() {
 }
 
 void Game::MoveBlockRigth() {
-	if (!gameOver) {
+	if (!gameOver && !gamePaused) {
 		currentBlock.Move(0, 1);
 		if (IsBlockOutside() || BlockFits() == false) {
 			currentBlock.Move(0, -1);
@@ -83,7 +89,7 @@ void Game::MoveBlockRigth() {
 }
 
 void Game::MoveBlockDown() {
-	if (!gameOver && !pause) {
+	if (!gameOver && !gamePaused) {
 		currentBlock.Move(1, 0);
 		if (IsBlockOutside() || BlockFits() == false) {
 			currentBlock.Move(-1, 0);
@@ -102,11 +108,12 @@ void Game::LockBlock() {
 		gameOver = true;
 	}
 	nextBlock = GetRandomBlock();
-	grid.ClearFullRows();
+	int rowsCleared = grid.ClearFullRows();
+	UpdateScore(rowsCleared, 0);
 }
 
 void Game::RotateBlock() {
-	if (!gameOver) {
+	if (!gameOver && !gamePaused) {
 		currentBlock.Rotate();
 		if (IsBlockOutside() || BlockFits() == false) {
 			currentBlock.UndoRotation();
@@ -139,5 +146,29 @@ void Game::Reset() {
 	blocks = GetAllBlocks();
 	currentBlock = GetRandomBlock();
 	nextBlock = GetRandomBlock();
-	pause = false;
+	gamePaused = false;
+	maxScoreReached = false;
+	score = 0;
+}
+
+void Game::UpdateScore(int linesCleared, int moveDownPoints) {
+	switch (linesCleared) {
+	case 1:
+		score += 100;
+		break;
+	case 2:
+		score += 300;
+		break;
+	case 3:
+		score += 500;
+		break;
+	default:
+		break;
+	}
+	if (score <= 999999998) {
+		score += moveDownPoints;
+	}
+	if (score == 999999999) {
+		maxScoreReached = true;
+	}
 }

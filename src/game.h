@@ -9,19 +9,22 @@ public:
 	Game();
 	Block GetRandomBlock();
 	vector<Block> GetAllBlocks();
+	Grid grid;
 	void Draw();
 	void HandleInput();
 	void MoveBlockLeft();
 	void MoveBlockRigth();
 	void MoveBlockDown();
-	Grid grid;
 	bool gameOver;
-	bool pause;
+	bool gamePaused;
+	bool maxScoreReached;
+	int score;
 
 private:
 	void RotateBlock();	
 	void LockBlock();
 	void Reset();
+	void UpdateScore(int linesCleared, int moveDownPoints);
 	bool IsBlockOutside();
 	bool BlockFits();
 	vector<Block> blocks;
