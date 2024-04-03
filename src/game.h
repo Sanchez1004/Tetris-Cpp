@@ -1,6 +1,8 @@
 #pragma once
 #include "grid.h"
 #include "blocks.cpp"
+#include <map>
+#include <random>
 
 using std::vector;
 
@@ -10,8 +12,9 @@ public:
 	~Game();
 	void Draw();
 	void HandleInput();
-	void MoveBlockDown();
 	void getScoreFontSize();
+	void HandleDownBlockMove();
+	void MoveBlockDown();
 	bool gameOver;
 	bool gamePaused;
 	bool maxScoreReached;
@@ -21,7 +24,7 @@ public:
 	Music music;
 
 private:
-	void HandlePausedGameMusic();
+	void TogglePause();
 	void RotateBlock();	
 	void MoveBlockLeft(); 
 	void MoveBlockRigth();

@@ -32,6 +32,7 @@
     <ClInclude Include="src\colors.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\grid.h" />
+    <ClInclude Include="src\main.h" />
     <ClInclude Include="src\position.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

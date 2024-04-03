@@ -2,6 +2,10 @@
 #include "game.h"
 #include "colors.h"
 #include <iostream>
+#include "main.h"
+
+const int WINDOW_WIDTH = 500;
+const int WINDOWS_HEIGHT = 620;
 
 double lastUpdateTime = 0;
 
@@ -12,6 +16,11 @@ bool EventTriggered(double interval) {
 		return true;
 	}
 	return false;
+}
+
+void DrawUIElement(Font font, const char* text, Rectangle rect, int fontSize, Color color) {
+	DrawRectangleRounded(rect, 0.3f, 6, lightPurple);
+	DrawTextEx(font, text, { rect.x + 4, rect.y + 5 }, fontSize, 2, color);
 }
 
 int main() {

@@ -1,23 +1,34 @@
 #include "game.h"
 #include <random>
 
-Game::Game() {
-	grid = Grid();
-	blocks = GetAllBlocks();
-	currentBlock = GetRandomBlock();
-	nextBlock = GetRandomBlock();
-	gameOver = false;
-	gamePaused = false;
-	maxScoreReached = false;
-	score = 0;
-	scoreFontSize = 38;
-	gameOverFontSize = 32;
-	InitAudioDevice();
-	music = LoadMusicStream("sounds/music.mp3");
-	PlayMusicStream(music);
-	rotateSound = LoadSound("Sounds/rotate.mp3");
-	clearSound = LoadSound("Sounds/clear.mp3");
+const int INITIAL_SCORE_FONT_SIZE = 38;
+const int INITIAL_GAME_OVER_FONT_SIZE = 32;
+
+/**
+ * @brief Constructs a new Game object.
+ *
+ * This constructor initializes the game grid, the list of all blocks, and the current and next blocks.
+ * It also sets the initial game state and score, and loads the game audio.
+ */
+Game::Game()
+	: grid(Grid()),  // Initialize the game grid
+	blocks(GetAllBlocks()),  // Get all possible blocks
+	currentBlock(GetRandomBlock()),  // Select a random block as the current block
+	nextBlock(GetRandomBlock()),  // Select a random block as the next block
+	gameOver(false),  // The game is not over at the start
+	gamePaused(false),  // The game is not paused at the start
+	maxScoreReached(false),  // The maximum score has not been reached at the start
+	score(0),  // The initial score is 0
+	scoreFontSize(INITIAL_SCORE_FONT_SIZE),  // Set the initial font size for the score
+	gameOverFontSize(INITIAL_GAME_OVER_FONT_SIZE)  // Set the initial font size for the game over message
+{
+	InitAudioDevice();  // Initialize the audio device
+	music = LoadMusicStream("sounds/music.mp3");  // Load the game music
+	PlayMusicStream(music);  // Start playing the game music
+	rotateSound = LoadSound("Sounds/rotate.mp3");  // Load the sound for block rotation
+	clearSound = LoadSound("Sounds/clear.mp3");  // Load the sound for clearing lines
 }
+
 
 Game::~Game() {
 	UnloadMusicStream(music);
@@ -26,15 +37,40 @@ Game::~Game() {
 	CloseAudioDevice();
 }
 
+
+/**
+ * @brief Returns a random block from the available blocks.
+ *
+ * This method uses a random number generator to select a block at random from the list of available blocks.
+ * If the list of blocks is empty, it is first replenished by calling the `GetAllBlocks` method.
+ * After a block is selected, it is removed from the list to ensure that each block is selected only once per cycle.
+ *
+ * @return A randomly selected block.
+ */
 Block Game::GetRandomBlock() {
+	// Initialize a random number generator
+	static std::random_device rd;
+	static std::mt19937 gen(rd());
+
+	// If the list of blocks is empty, replenish it
 	if (blocks.empty()) {
 		blocks = GetAllBlocks();
 	}
-	int randomIndex = rand() % blocks.size();
+
+	// Generate a random index
+	std::uniform_int_distribution<> dis(0, blocks.size() - 1);
+	int randomIndex = dis(gen);
+
+	// Select the block at the random index
 	Block block = blocks[randomIndex];
+
+	// Remove the selected block from the list
 	blocks.erase(blocks.begin() + randomIndex);
+
+	// Return the selected block
 	return block;
 }
+
 
 vector<Block> Game::GetAllBlocks() {
 	return { IBlock(), JBlock(), LBlock(), OBlock(), SBlock(), TBlock(), ZBlock() };
@@ -55,54 +91,58 @@ void Game::Draw() {
 	}
 }
 
-void Game::HandleInput(){
-	int keyPressed = GetKeyPressed();
+
+/**
+ * @brief Handles user input during the game.
+ *
+ * This method maps keyboard keys to corresponding game actions. When a key is pressed,
+ * the corresponding game action is executed.
+ *
+ * The mapping is stored in a static map where the keys are the keyboard key codes and
+ * the values are pointers to the member functions that implement the game actions.
+ *
+ * If the game is over and any key is pressed, the game is reset.
+ */
+void Game::HandleInput() {
+	static const std::map<int, void(Game::*)()> keyHandlers = {
+		{KEY_LEFT, &Game::MoveBlockLeft},  // Move the block left when the LEFT key or 'A' is pressed
+		{KEY_A, &Game::MoveBlockLeft},
+		{KEY_RIGHT, &Game::MoveBlockRigth},  // Move the block right when the RIGHT key or 'D' is pressed
+		{KEY_D, &Game::MoveBlockRigth},
+		{KEY_DOWN, &Game::HandleDownBlockMove},  // Move the block down when the DOWN key or 'S' is pressed
+		{KEY_S, &Game::HandleDownBlockMove},
+		{KEY_UP, &Game::RotateBlock},  // Rotate the block when the UP key or 'W' is pressed
+		{KEY_W, &Game::RotateBlock},
+		{KEY_R, &Game::Reset},  // Reset the game when the 'R' key is pressed
+		{KEY_T, &Game::TogglePause}  // Toggle pause when the 'T' key is pressed
+	};
+
+	int keyPressed = GetKeyPressed();  // Get the key pressed by the user
 	if (gameOver && keyPressed != 0) {
 		gameOver = false;
 		Reset();
 	}
-	switch (keyPressed)
-	{
-	// This kind of definition makes posible to handle both ARROWS and WASD to control the blocks
-	case KEY_LEFT:
-	case KEY_A:
-		MoveBlockLeft();
-		break;
-	case KEY_RIGHT:
-	case KEY_D:
-		MoveBlockRigth();
-		break;
-	case KEY_DOWN:
-	case KEY_S:
-		MoveBlockDown();
-		// If the game is paused the score will no update even if we press de W or DOWN key
-		if (!gamePaused) {
-			UpdateScore(0, 1);
-		}
-		break;
-	case KEY_UP:
-	case KEY_W:
-		RotateBlock();
-		break;
-	case KEY_R:
-		StopMusicStream(music);
-		Reset();
-		break;
-	case KEY_T:
-		// If pause = true -> false, if pause = false -> true
-		HandlePausedGameMusic();
-		gamePaused = !gamePaused;
-		break;
+
+	if (keyHandlers.count(keyPressed) > 0) {
+		(this->*keyHandlers.at(keyPressed))();  // Execute the game action corresponding to the key pressed
 	}
 }
 
-void Game::HandlePausedGameMusic() {
+void Game::HandleDownBlockMove() {
+	MoveBlockDown();
+	UpdateScore(0, 1);
+}
+
+void Game::TogglePause() {
 	if (!gamePaused) {
 		PauseMusicStream(music);
 	}
 	else {
 		ResumeMusicStream(music);
 	}
+		
+	// If pause = true -> false, if pause = false -> true
+	gamePaused = !gamePaused;
 }
 
 void Game::MoveBlockLeft() {
@@ -151,24 +191,24 @@ void Game::LockBlock() {
 	}
 }
 
+
+
+/**
+ * @brief Adjusts the font size of the score and game over text based on the current score.
+ *
+ * This method calculates the number of digits in the current score. If the number of digits is 7 or more,
+ * it reduces the font size of the score and game over text proportionally to the number of digits.
+ * Otherwise, it sets the font size to their initial values.
+ */
 void Game::getScoreFontSize() {
 	int digits = floor(log10(score)) + 1;
-	switch (digits) {
-	case 7:
-		scoreFontSize = 36;
-		gameOverFontSize = 30;
-		break;
-	case 8:
-		scoreFontSize = 34;
-		gameOverFontSize = 28;
-		break;
-	case 9:
-		scoreFontSize = 32;
-		gameOverFontSize = 26;
-		break;
-	default:
-		scoreFontSize = 38;
-		gameOverFontSize = 32;
+	if (digits >= 7) {
+		scoreFontSize = 40 - digits;
+		gameOverFontSize = 34 - digits;
+	}
+	else {
+		scoreFontSize = INITIAL_SCORE_FONT_SIZE;
+		gameOverFontSize = INITIAL_GAME_OVER_FONT_SIZE;
 	}
 }
 
@@ -212,27 +252,34 @@ void Game::Reset() {
 	gamePaused = false;
 	maxScoreReached = false;
 	score = 0;
+	StopMusicStream(music);
 	PlayMusicStream(music); // This will play the music again, becuse in the LockBlock() method it
 }							// Stop was stopped
 
+
+
+/**
+ * @brief Updates the game score based on the lines cleared and points earned from moving down.
+ *
+ * This method updates the score of the game. It adds points to the score based on the number of lines cleared.
+ * The points for clearing 1, 2, or 3 lines are 100, 300, and 500 respectively. It also adds points earned from moving down.
+ * If adding the move down points would cause the score to exceed 999999998, it sets the score to 999999999 and sets maxScoreReached to true.
+ *
+ * @param linesCleared The number of lines cleared in the game.
+ * @param moveDownPoints The points earned from moving down.
+ */
 void Game::UpdateScore(int linesCleared, int moveDownPoints) {
-	switch (linesCleared) {
-	case 1:
-		score += 100;
-		break;
-	case 2:
-		score += 300;
-		break;
-	case 3:
-		score += 500;
-		break;
-	default:
-		break;
+	static const std::map<int, int> pointsPerLine = { {1, 100}, {2, 300}, {3, 500} };
+
+	if (pointsPerLine.count(linesCleared) > 0) {
+		score += pointsPerLine.at(linesCleared);
 	}
-	if (score <= 999999998) {
+
+	if (score <= 999999998 - moveDownPoints) {
 		score += moveDownPoints;
 	}
-	if (score == 999999999) {
+	else if (!maxScoreReached) {
+		score = 999999999;
 		maxScoreReached = true;
 	}
 }
