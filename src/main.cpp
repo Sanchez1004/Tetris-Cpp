@@ -1,15 +1,33 @@
+/**
+* === Suggestion: Use Singleton Pattern for Shared Game Instance === 
+* To separate GUI logic from the main code and utilize methods from 
+* the main `Game` instance, consider implementing a Singleton pattern. 
+*
+* This allows you to maintain a single global instance of "Game" accessible 
+* from both "main.cpp" and "UI.h". 
+*
+* 1. Create a "GameManager" class responsible for managing the "Game" instance.
+* 2. Access the "Game" instance through the "GameManager" in both places. 
+* 3. Ensure proper initialization and lifetime management.
+*/
+
 #include <raylib.h>
-#include "game.h"
-#include "colors.h"
 #include <iostream>
-#include "main.h"
+#include "UI.h"
 
 const int WINDOW_WIDTH = 500;
-const int WINDOWS_HEIGHT = 620;
+const int WINDOW_HEIGHT = 620;
 
 double lastUpdateTime = 0;
 
-bool EventTriggered(double interval) {
+/**
+ * Checks if the specified time interval has elapsed since the last update.
+ *
+ * @param interval double: The time interval in seconds.
+ *
+ * @return bool: True if the event is triggered, False otherwise.
+ */
+static bool EventTriggered(double interval) {
 	double currentTime = GetTime();
 	if (currentTime - lastUpdateTime >= interval) {
 		lastUpdateTime = currentTime;
@@ -18,17 +36,13 @@ bool EventTriggered(double interval) {
 	return false;
 }
 
-void DrawUIElement(Font font, const char* text, Rectangle rect, int fontSize, Color color) {
-	DrawRectangleRounded(rect, 0.3f, 6, lightPurple);
-	DrawTextEx(font, text, { rect.x + 4, rect.y + 5 }, fontSize, 2, color);
-}
-
 int main() {
-	InitWindow(500, 620, "Tetris");
+	InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Tetris");
 	SetTargetFPS(60);
 
 	Font font = LoadFontEx("Font/monogram.ttf", 64, 0, 0);
 	Game game = Game();
+	UI ui = UI(font);
 
 	while (WindowShouldClose() == false) {
 		UpdateMusicStream(game.music);
@@ -42,19 +56,14 @@ int main() {
 		ClearBackground(darkPurple);
 
 		//Next Block container
-		DrawTextEx(font, "Next", { 365, 175 }, 38, 2, WHITE);
-		DrawRectangleRounded({ 320, 215, 170, 180 }, 0.3f, 6, lightPurple);
-
+		ui.DrawUIElementTextAbove(font, "Next", { 320, 215, 170, 180 }, 38, WHITE);
 		// Calling the method here, just before the next block container makes the next block
 		// Appears on the container
 		game.Draw();
 		
-
-
-
-		// Score container module
-		DrawTextEx(font, "Score", { 360, 15 }, 38, 2, WHITE);
-		DrawRectangleRounded({ 320, 55, 170, 60 }, 0.3f, 6, lightPurple);
+		
+		// Score container 
+		ui.DrawUIElementTextAbove(font, "Score", { 320, 55, 170, 60 }, 38, WHITE);
 
 		game.getScoreFontSize();
 
@@ -68,18 +77,8 @@ int main() {
 			DrawTextEx(font, "REACHED", { 349, 130 }, 30, 2, WHITE);
 		}
 
-
-
-
-		// Restart button creation
-		Rectangle restartButton = { 316, 495, 178, 48 };
-		DrawRectangleRounded({ restartButton }, 0.3f, 6, lightPurple);
-		DrawTextEx(font, "RESTART[R]", { 320, 500 }, 34, 2, WHITE);
-
-		// Pause button creation
-		Rectangle pauseButton = { 316, 562, 178, 44 };
-		DrawRectangleRounded({ pauseButton }, 0.3f, 6, lightPurple);
-		DrawTextEx(font, "PAUSE[T]", { 340, 566 }, 34, 2, WHITE);
+		ui.DrawBasicElements();
+			
 		if (game.gamePaused == true && !game.gameOver) {
 			DrawTextEx(font, "GAME PAUSED\nPRESS[T]\nTO CONTINUE", { 64,220 }, 34, 2, WHITE);
 		}
@@ -97,7 +96,6 @@ int main() {
 			DrawTextEx(font, "PREES ANY KEY", { 47,300 }, 34, 0.5, WHITE);
 			DrawTextEx(font, "TO PLAY AGAIN", { 47,325 }, 34, 0.5, WHITE);
 		}
-
 		EndDrawing();
 	}
 

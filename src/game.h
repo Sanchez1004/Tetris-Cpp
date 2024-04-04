@@ -1,6 +1,7 @@
 #pragma once
 #include "grid.h"
 #include "blocks.cpp"
+#include "UI.h"
 #include <map>
 #include <random>
 
@@ -12,6 +13,7 @@ public:
 	~Game();
 	void Draw();
 	void HandleInput();
+	void OptionsMenu();
 	void getScoreFontSize();
 	void HandleDownBlockMove();
 	void MoveBlockDown();
@@ -22,6 +24,7 @@ public:
 	float gameOverFontSize;
 	int score;
 	Music music;
+	//UI ui;
 
 private:
 	void TogglePause();

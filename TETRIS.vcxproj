@@ -26,6 +26,7 @@
     <ClCompile Include="src\grid.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\position.cpp" />
+    <ClCompile Include="src\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\block.h" />
@@ -34,6 +35,7 @@
     <ClInclude Include="src\grid.h" />
     <ClInclude Include="src\main.h" />
     <ClInclude Include="src\position.h" />
+    <ClInclude Include="src\UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

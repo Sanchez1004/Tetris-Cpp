@@ -59,7 +59,7 @@ Block Game::GetRandomBlock() {
 
 	// Generate a random index
 	std::uniform_int_distribution<> dis(0, blocks.size() - 1);
-	int randomIndex = dis(gen);
+	size_t randomIndex = dis(gen);  // Change int to size_t
 
 	// Select the block at the random index
 	Block block = blocks[randomIndex];
@@ -70,7 +70,6 @@ Block Game::GetRandomBlock() {
 	// Return the selected block
 	return block;
 }
-
 
 vector<Block> Game::GetAllBlocks() {
 	return { IBlock(), JBlock(), LBlock(), OBlock(), SBlock(), TBlock(), ZBlock() };
@@ -114,7 +113,8 @@ void Game::HandleInput() {
 		{KEY_UP, &Game::RotateBlock},  // Rotate the block when the UP key or 'W' is pressed
 		{KEY_W, &Game::RotateBlock},
 		{KEY_R, &Game::Reset},  // Reset the game when the 'R' key is pressed
-		{KEY_T, &Game::TogglePause}  // Toggle pause when the 'T' key is pressed
+		{KEY_T, &Game::TogglePause},  // Toggle pause when the 'T' key is pressed
+		{KEY_O, &Game::OptionsMenu}
 	};
 
 	int keyPressed = GetKeyPressed();  // Get the key pressed by the user
@@ -126,6 +126,10 @@ void Game::HandleInput() {
 	if (keyHandlers.count(keyPressed) > 0) {
 		(this->*keyHandlers.at(keyPressed))();  // Execute the game action corresponding to the key pressed
 	}
+}
+
+void Game::OptionsMenu() {
+	
 }
 
 void Game::HandleDownBlockMove() {
