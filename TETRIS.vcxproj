@@ -19,23 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\block.cpp" />
-    <ClCompile Include="src\blocks.cpp" />
-    <ClCompile Include="src\colors.cpp" />
-    <ClCompile Include="src\game.cpp" />
-    <ClCompile Include="src\grid.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\position.cpp" />
-    <ClCompile Include="src\UI.cpp" />
+    <ClCompile Include="src\source\block.cpp" />
+    <ClCompile Include="src\source\blocks.cpp" />
+    <ClCompile Include="src\source\colors.cpp" />
+    <ClCompile Include="src\source\game.cpp" />
+    <ClCompile Include="src\source\grid.cpp" />
+    <ClCompile Include="src\source\main.cpp" />
+    <ClCompile Include="src\source\position.cpp" />
+    <ClCompile Include="src\source\UserInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\block.h" />
-    <ClInclude Include="src\colors.h" />
-    <ClInclude Include="src\game.h" />
-    <ClInclude Include="src\grid.h" />
-    <ClInclude Include="src\main.h" />
-    <ClInclude Include="src\position.h" />
-    <ClInclude Include="src\UI.h" />
+    <ClInclude Include="src\include\block.h" />
+    <ClInclude Include="src\include\colors.h" />
+    <ClInclude Include="src\include\game.h" />
+    <ClInclude Include="src\include\grid.h" />
+    <ClInclude Include="src\include\position.h" />
+    <ClInclude Include="src\include\UserInterface.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -124,6 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Code\C++\Projects\Tetris-Cpp\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +138,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Code\C++\Projects\Tetris-Cpp\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

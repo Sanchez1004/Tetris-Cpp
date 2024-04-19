@@ -15,51 +15,48 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="src\source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\grid.cpp">
+    <ClCompile Include="src\source\grid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\position.cpp">
+    <ClCompile Include="src\source\position.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\colors.cpp">
+    <ClCompile Include="src\source\colors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\block.cpp">
+    <ClCompile Include="src\source\block.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\blocks.cpp">
+    <ClCompile Include="src\source\blocks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\game.cpp">
+    <ClCompile Include="src\source\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\UI.cpp">
+    <ClCompile Include="src\source\UserInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\grid.h">
+    <ClInclude Include="src\include\grid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\position.h">
+    <ClInclude Include="src\include\position.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\block.h">
+    <ClInclude Include="src\include\block.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\colors.h">
+    <ClInclude Include="src\include\colors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\game.h">
+    <ClInclude Include="src\include\game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UI.h">
+    <ClInclude Include="src\include\UserInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
