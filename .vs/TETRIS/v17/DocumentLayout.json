@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\source\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:source\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,13 +24,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\source\\main.cpp",
-              "RelativeDocumentMoniker": "source\\main.cpp",
-              "ToolTip": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\source\\main.cpp",
-              "RelativeToolTip": "source\\main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "DocumentMoniker": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-26T05:13:06.552Z",
+              "WhenOpened": "2024-04-26T05:35:12.276Z",
               "EditorCaption": ""
             }
           ]

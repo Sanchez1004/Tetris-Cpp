@@ -12,8 +12,8 @@
 */
 
 #include "include/raylib.h"
-#include "../include/userInterface.h"
-#include "../include/game.h"
+#include "include/userInterface.h"
+#include "include/game.h"
 
 constexpr int WINDOW_WIDTH = 500;
 constexpr int WINDOW_HEIGHT = 620;
