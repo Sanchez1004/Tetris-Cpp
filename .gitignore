@@ -1,11 +1,11 @@
-# Archivos de compilación de C++
+# C++ build files
 *.o
 *.obj
 *.exe
 *.exp
 *.ilk
 
-# Archivos de Visual Studio
+# Visual Studio files
 .vs/
 *.sln
 *.suo
@@ -15,27 +15,25 @@
 *.vcxproj.filters
 *.vcxproj.user
 
-# Carpetas de compilación de Visual Studio
+# Visual Studio build folders
 build/
 Debug/
 Release/
 x64/
 x86/
 
-# Archivos de copia de seguridad
+# Backup files
 *~
 *.bak
 
-# Otros archivos y carpetas ignorados
+# Other ignored files and folders
 .DS_Store
 Thumbs.db
 
-# Archivos específicos de Raylib
+# Raylib specific files
 raylib.log
 raylib.trace
 
-# Archivos de recursos de Raylib
+# Raylib resource files
 resources.h
 resources.c
-
-

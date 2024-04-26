@@ -15,49 +15,70 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\source\main.cpp">
+    <ClCompile Include="source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\source\grid.cpp">
+    <ClCompile Include="source\grid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\source\position.cpp">
+    <ClCompile Include="source\position.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\source\colors.cpp">
+    <ClCompile Include="source\colors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\source\block.cpp">
+    <ClCompile Include="source\block.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\source\blocks.cpp">
+    <ClCompile Include="source\blocks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\source\game.cpp">
+    <ClCompile Include="source\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\source\UserInterface.cpp">
+    <ClCompile Include="source\UserInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\include\grid.h">
+    <ClInclude Include="include\grid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\include\position.h">
+    <ClInclude Include="include\position.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\include\block.h">
+    <ClInclude Include="include\block.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\include\colors.h">
+    <ClInclude Include="include\colors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\include\game.h">
+    <ClInclude Include="include\game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\include\UserInterface.h">
+    <ClInclude Include="include\UserInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\raylib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Font\monogram.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Sounds\clear.mp3" />
+    <Media Include="Sounds\music.mp3" />
+    <Media Include="Sounds\rotate.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\libraylib.a" />
   </ItemGroup>
 </Project>

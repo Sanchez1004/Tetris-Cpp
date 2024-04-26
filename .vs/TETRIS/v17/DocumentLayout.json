@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\source\\UserInterface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:src\\source\\UserInterface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\source\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:src\\source\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\include\\UserInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:src\\include\\UserInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\include\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:src\\include\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\source\\game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:src\\source\\game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\source\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C496AC2B-46AD-4635-92F7-58AB7AD1C81E}|TETRIS.vcxproj|solutionrelative:source\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,78 +14,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "main.cpp",
-              "DocumentMoniker": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\source\\main.cpp",
-              "RelativeDocumentMoniker": "src\\source\\main.cpp",
-              "ToolTip": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\source\\main.cpp",
-              "RelativeToolTip": "src\\source\\main.cpp",
-              "ViewState": "AQIAACsAAAAAAAAAAAAAADoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-04T19:22:40.193Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "game.cpp",
-              "DocumentMoniker": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\source\\game.cpp",
-              "RelativeDocumentMoniker": "src\\source\\game.cpp",
-              "ToolTip": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\source\\game.cpp",
-              "RelativeToolTip": "src\\source\\game.cpp",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAAMAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-04T19:22:36.667Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserInterface.cpp",
-              "DocumentMoniker": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\source\\UserInterface.cpp",
-              "RelativeDocumentMoniker": "src\\source\\UserInterface.cpp",
-              "ToolTip": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\source\\UserInterface.cpp",
-              "RelativeToolTip": "src\\source\\UserInterface.cpp",
-              "ViewState": "AQIAABgAAAAAAAAAAAAcwFgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-04T19:23:03.838Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "game.h",
-              "DocumentMoniker": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\include\\game.h",
-              "RelativeDocumentMoniker": "src\\include\\game.h",
-              "ToolTip": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\include\\game.h",
-              "RelativeToolTip": "src\\include\\game.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-04T19:25:36.414Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserInterface.h",
-              "DocumentMoniker": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\include\\UserInterface.h",
-              "RelativeDocumentMoniker": "src\\include\\UserInterface.h",
-              "ToolTip": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\src\\include\\UserInterface.h",
-              "RelativeToolTip": "src\\include\\UserInterface.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-04T19:25:34.326Z",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\source\\main.cpp",
+              "RelativeDocumentMoniker": "source\\main.cpp",
+              "ToolTip": "D:\\Code\\C\u002B\u002B\\Projects\\Tetris-Cpp\\source\\main.cpp",
+              "RelativeToolTip": "source\\main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-26T05:13:06.552Z",
               "EditorCaption": ""
             }
           ]

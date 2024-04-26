@@ -19,22 +19,38 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\source\block.cpp" />
-    <ClCompile Include="src\source\blocks.cpp" />
-    <ClCompile Include="src\source\colors.cpp" />
-    <ClCompile Include="src\source\game.cpp" />
-    <ClCompile Include="src\source\grid.cpp" />
-    <ClCompile Include="src\source\main.cpp" />
-    <ClCompile Include="src\source\position.cpp" />
-    <ClCompile Include="src\source\UserInterface.cpp" />
+    <ClCompile Include="source\block.cpp" />
+    <ClCompile Include="source\blocks.cpp" />
+    <ClCompile Include="source\colors.cpp" />
+    <ClCompile Include="source\game.cpp" />
+    <ClCompile Include="source\grid.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\position.cpp" />
+    <ClCompile Include="source\UserInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\include\block.h" />
-    <ClInclude Include="src\include\colors.h" />
-    <ClInclude Include="src\include\game.h" />
-    <ClInclude Include="src\include\grid.h" />
-    <ClInclude Include="src\include\position.h" />
-    <ClInclude Include="src\include\UserInterface.h" />
+    <ClInclude Include="include\block.h" />
+    <ClInclude Include="include\colors.h" />
+    <ClInclude Include="include\game.h" />
+    <ClInclude Include="include\grid.h" />
+    <ClInclude Include="include\position.h" />
+    <ClInclude Include="include\raylib.h" />
+    <ClInclude Include="include\UserInterface.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Font\monogram.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Sounds\clear.mp3" />
+    <Media Include="Sounds\music.mp3" />
+    <Media Include="Sounds\rotate.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\libraylib.a" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -89,6 +105,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>true</VcpkgEnabled>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -123,11 +142,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Code\C++\Projects\Tetris-Cpp\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\C++\Projects\Tetris-Cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Code\C++\Projects\Tetris-Cpp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -138,13 +158,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Code\C++\Projects\Tetris-Cpp\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\C++\Projects\Tetris-Cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Code\C++\Projects\Tetris-Cpp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
