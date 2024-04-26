@@ -1,10 +1,3 @@
-# C++ build files
-*.o
-*.obj
-*.exe
-*.exp
-*.ilk
-
 # Visual Studio files
 .vs/
 *.sln
@@ -16,7 +9,6 @@
 *.vcxproj.user
 
 # Visual Studio build folders
-build/
 Debug/
 Release/
 x64/
@@ -33,7 +25,3 @@ Thumbs.db
 # Raylib specific files
 raylib.log
 raylib.trace
-
-# Raylib resource files
-resources.h
-resources.c
