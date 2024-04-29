@@ -17,7 +17,7 @@ void Block::Move(int rows, int columns) {
 
 void Block::Rotate() {
 	rotationState++;
-	if (rotationState == cells.size()) {
+	if (rotationState == static_cast<int>(cells.size())) {
 		rotationState = 0;
 	}
 }

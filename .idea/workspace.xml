@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="Tetris-Cpp" targetName="GNUmakefile" />
+      <config projectName="Tetris-Cpp" targetName="makefile" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_TOOLCHAIN_FILE=D:/repos/vcpkg/scripts/buildsystems/vcpkg.cmake" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4d4f5afa-147d-4e89-8334-ca21ec718a64" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CMakeLists" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TETRIS.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TETRIS.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/TETRIS.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/TETRIS.vcxproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.ilk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.tlog/CL.command.1.tlog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.tlog/CL.read.1.tlog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.tlog/CL.write.1.tlog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.tlog/Cl.items.tlog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.tlog/Tetris-Cpp.lastbuildstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.tlog/Tetris-Cpp.write.1u.tlog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.tlog/link.command.1.tlog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.tlog/link.secondary.1.tlog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.tlog/link.write.1.tlog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/UserInterface.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/block.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/blocks.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/colors.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/game.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/grid.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/main.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/position.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/vc143.idb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/vc143.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/vcpkg.applocal.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/x64/Debug/Tetris-Cpp.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/x64/Debug/Tetris-Cpp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/TETRIS/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/TETRIS/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/TETRIS/v17/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/TETRIS/v17/Browse.VC.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/TETRIS/v17/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/TETRIS/v17/DocumentLayout.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/TETRIS/v17/Solution.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/TETRIS/v17/Solution.VC.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/TETRIS/v17/ipch/AutoPCH/b1f1eac60d913d89/MAIN.ipch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/TETRIS/v17/ipch/AutoPCH/bb601f925aa21e0b/GRIDCPP.ipch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TETRIS.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/TETRIS.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/colors.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/colors.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/game.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/game.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/grid.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/grid.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/raylib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/userInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/userInterface.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/block.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/source/block.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.exe.recipe" beforeDir="false" afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.exe.recipe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.ilk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.tlog/CL.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.tlog/CL.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.tlog/CL.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.tlog/Cl.items.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.tlog/TETRIS.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.tlog/TETRIS.write.1u.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.tlog/link.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Tetris-Cpp/x64/Debug/Tetris-Cpp.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.tlog/link.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/TETRIS.vcxproj.FileListAbsolute.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/main.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/vc143.idb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/vc143.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/vcpkg.applocal.log" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="Tetris-Cpp" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="Tetris-Cpp" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="1" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2fcofoBgDtUqtoJZRzn30kZLQqu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Makefile Target.%.o.executor": "Run",
+    "Makefile Target.clean.executor": "Run",
+    "Makefile Target.default.executor": "Run",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "ignore_missing_gitignore": "true",
+    "last_opened_file_path": "D:/Code/C++/Projects/Tetris-Cpp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CPPToolchains",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\C++\Projects\Tetris-Cpp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Makefile Target.%.o">
+    <configuration name="GNUmakefile" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Tetris-Cpp" TARGET_NAME="GNUmakefile" CONFIG_NAME="GNUmakefile" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="makefile" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Tetris-Cpp" TARGET_NAME="makefile" CONFIG_NAME="makefile" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="%.o" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/build/Makefile" target="%.o" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/build/Makefile" target="clean" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="default" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/build/Makefile" target="default" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Makefile Target.%.o" />
+      <item itemvalue="Makefile Target.clean" />
+      <item itemvalue="Makefile Target.default" />
+      <item itemvalue="Native Application.GNUmakefile" />
+      <item itemvalue="Native Application.makefile" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Makefile Target.%.o" />
+        <item itemvalue="Makefile Target.clean" />
+        <item itemvalue="Makefile Target.default" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d4f5afa-147d-4e89-8334-ca21ec718a64" name="Changes" comment="" />
+      <created>1714109834944</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714109834944</updated>
+      <workItem from="1714109836131" duration="2711000" />
+      <workItem from="1714142254721" duration="621000" />
+      <workItem from="1714271262143" duration="1566000" />
+      <workItem from="1714402987776" duration="4806000" />
+      <workItem from="1714422877404" duration="3194000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/include/block.h</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

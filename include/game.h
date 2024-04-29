@@ -1,7 +1,8 @@
 #pragma once
 #include "grid.h"
 #include "../source/blocks.cpp"
-#include "../include/raylib.h"
+#define RAYLIB_CXX_STANDARD_MAIN
+#include "raylib.h"
 #include <random>
 #include <map>
 

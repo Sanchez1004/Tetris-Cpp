@@ -1,5 +1,6 @@
 #pragma once
-#include "../include/raylib.h"
+#define RAYLIB_CXX_STANDARD_MAIN
+#include "raylib.h"
 #include <vector>
 
 using std::vector;

@@ -1,3 +1,0 @@
-D:\Code\Daniel\C++\PROJECTS\TETRIS\x64\Debug\TETRIS.exe
-D:\Code\Daniel\C++\PROJECTS\TETRIS\x64\Debug\TETRIS.vcxproj.CopyComplete
-D:\Code\Daniel\C++\PROJECTS\TETRIS\x64\Debug\raylib.dll

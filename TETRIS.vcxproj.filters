@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\grid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -68,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
-    <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Font\monogram.ttf" />

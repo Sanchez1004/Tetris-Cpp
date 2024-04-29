@@ -1,7 +1,8 @@
 #pragma once
 #include <stdio.h>
 #include "../include/game.h"
-#include "../include/raylib.h"
+#define RAYLIB_CXX_STANDARD_MAIN
+#include "raylib.h"
 #include "../include/colors.h"
 #include "../include/game.h"
 

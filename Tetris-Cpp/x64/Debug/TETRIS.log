@@ -1,0 +1,11 @@
+﻿  UserInterface.cpp
+  block.cpp
+  blocks.cpp
+D:\Code\C++\Projects\Tetris-Cpp\source\block.cpp(28,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  colors.cpp
+  game.cpp
+  grid.cpp
+  main.cpp
+  position.cpp
+  Generating Code...
+  TETRIS.vcxproj -> D:\Code\C++\Projects\Tetris-Cpp\x64\Debug\Tetris-Cpp.exe
