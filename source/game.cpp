@@ -18,6 +18,7 @@ Game::Game():
 	score(0),
 	mousePosition(GetMousePosition()),
 	gameState(GAME_PLAYING),
+	currentMenuState(MAIN_MENU),
 	blocks(GetAllBlocks()),
 	currentBlock(GetRandomBlock()),
 	nextBlock(GetRandomBlock()),
@@ -104,6 +105,11 @@ bool Game::IsGamePaused () const {
 bool Game::IsGamePlaying () const {
 	return gameState == GAME_PLAYING;
 }
+
+bool Game::GameShouldClose() const {
+	return WindowShouldClose() || currentMenuState == EXIT;
+}
+
 /**
  * @brief Handles user input during the game.
  *
@@ -127,7 +133,7 @@ void Game::HandleInput() {
 		{KEY_W, &Game::RotateBlock},
 		{KEY_R, &Game::Reset},  // Reset the game when the 'R' key is pressed
 		{KEY_T, &Game::TogglePause},  // Toggle pause when the 'T' key is pressed
-		{KEY_O, &Game::OptionsMenu}
+		{KEY_ESCAPE, &Game::OptionsMenu}
 	};
 
 	mousePosition = GetMousePosition();
@@ -144,7 +150,7 @@ void Game::HandleInput() {
 }
 
 void Game::OptionsMenu() {
-	
+	currentMenuState = EXIT;
 }
 
 void Game::HandleDownBlockMove() {
@@ -225,6 +231,10 @@ void Game::getScoreFontSize() {
 		scoreFontSize = INITIAL_SCORE_FONT_SIZE;
 		gameOverFontSize = INITIAL_GAME_OVER_FONT_SIZE;
 	}
+}
+
+int Game::getScore() {
+	return score;
 }
 
 void Game::RotateBlock() {

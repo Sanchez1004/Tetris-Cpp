@@ -32,46 +32,37 @@ static bool EventTriggered() {
 	return false;
 }
 
-
 int main() {
 	InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Tetris");
 	SetTargetFPS(60);
 
 	const Font font = LoadFontEx("Font/monogram.ttf", 64, nullptr, 0);
 
-	/**
-	 * @brief Instantiates a Game object using auto.
-	 *
-	 * This line instantiates a Game object using the auto keyword, allowing the compiler to deduce the type
-	 * of the variable based on the type of the expression Game(). This improves code readability by avoiding
-	 * redundant type declarations.
-	 */
 	auto game = Game();
-
-	/**
-	 * @brief Instantiates a UserInterface object using auto.
-	 *
-	 * This line instantiates a UserInterface object using the auto keyword, similarly allowing the compiler
-	 * to deduce the type of the variable based on the type of the expression UserInterface(&game, font).
-	 * Utilizing auto enhances code clarity by eliminating explicit type declarations.
-	 */
 	auto ui = UserInterface(&game, font);
 
-	while (!WindowShouldClose()) {
-		UpdateMusicStream(game.music);
+	while (!game.GameShouldClose()) {
 		game.HandleInput();
+		switch (game.currentMenuState) {
+			case MAIN_MENU:
+				game.currentMenuState = GAME;
+				break;
 
-		if (EventTriggered()) {
-			game.MoveBlockDown();
+			case GAME:
+				UpdateMusicStream(game.music);
+				if (EventTriggered()) {
+					game.MoveBlockDown();
+				}
+				BeginDrawing();
+				ClearBackground(darkPurple);
+				ui.DrawComponents();
+				EndDrawing();
+				break;
+
+			case HIGH_SCORES:
+				break;
+			default: ;
 		}
-
-		BeginDrawing();
-		ClearBackground(darkPurple);
-
-		ui.DrawComponents();
-
-		EndDrawing();
 	}
-
 	CloseWindow();
 }

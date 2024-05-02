@@ -9,6 +9,13 @@ enum GameState {
 	GAME_OVER
 };
 
+enum MenuState {
+	MAIN_MENU,
+	GAME,
+	HIGH_SCORES,
+	EXIT
+};
+
 using std::vector;
 
 class Game {
@@ -21,18 +28,21 @@ public:
 	void getScoreFontSize();
 	void HandleDownBlockMove();
 	void MoveBlockDown();
+	int getScore();
 	[[nodiscard]] bool IsGameOver() const;
 	[[nodiscard]] bool IsGamePaused() const;
 	[[nodiscard]] bool IsGamePlaying() const;
+	[[nodiscard]]bool GameShouldClose() const;
 	bool maxScoreReached;
 	float scoreFontSize;
 	float gameOverFontSize;
-	int score;
 	Music music{};
 	Vector2 mousePosition;
 	GameState gameState;
+	MenuState currentMenuState;
 
 private:
+	int score;
 	void TogglePause();
 	void RotateBlock();	
 	void MoveBlockLeft();
