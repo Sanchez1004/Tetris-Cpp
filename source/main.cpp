@@ -22,13 +22,10 @@ double lastUpdateTime = 0;
 /**
  * Checks if the specified time interval has elapsed since the last update.
  *
- * @param interval double: The time interval in seconds.
- *
  * @return bool: True if the event is triggered, False otherwise.
  */
-static bool EventTriggered(double interval) {
-	const double currentTime = GetTime();
-	if (currentTime - lastUpdateTime >= interval) {
+static bool EventTriggered() {
+	if (const double currentTime = GetTime(); currentTime - lastUpdateTime >= 0.2) {
 		lastUpdateTime = currentTime;
 		return true;
 	}
@@ -64,7 +61,7 @@ int main() {
 		UpdateMusicStream(game.music);
 		game.HandleInput();
 
-		if (EventTriggered(0.2)) {
+		if (EventTriggered()) {
 			game.MoveBlockDown();
 		}
 

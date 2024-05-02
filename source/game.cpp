@@ -1,4 +1,6 @@
 #include "../include/game.h"
+#include <map>
+#include <random>
 
 constexpr int INITIAL_SCORE_FONT_SIZE = 38;
 constexpr int INITIAL_GAME_OVER_FONT_SIZE = 32;
@@ -10,16 +12,16 @@ constexpr int INITIAL_GAME_OVER_FONT_SIZE = 32;
  * It also sets the initial game state and score, and loads the game audio.
  */
 Game::Game():
-	gameOver(false),  // Initialize the game grid
-	gamePaused(false),  // Get all possible blocks
-	maxScoreReached(false),  // Select a random block as the current block
-	scoreFontSize(INITIAL_SCORE_FONT_SIZE),  // Select a random block as the next block
-	gameOverFontSize(INITIAL_GAME_OVER_FONT_SIZE),  // The game is not over at the start
-	score(0),  // The game is not paused at the start
-	blocks(GetAllBlocks()),  // The maximum score has not been reached at the start
-	currentBlock(GetRandomBlock()),  // The initial score is 0
-	nextBlock(GetRandomBlock()),  // Set the initial font size for the score
-	grid(Grid())  // Set the initial font size for the game over message
+	maxScoreReached(false),
+	scoreFontSize(INITIAL_SCORE_FONT_SIZE),
+	gameOverFontSize(INITIAL_GAME_OVER_FONT_SIZE),
+	score(0),
+	mousePosition(GetMousePosition()),
+	gameState(GAME_PLAYING),
+	blocks(GetAllBlocks()),
+	currentBlock(GetRandomBlock()),
+	nextBlock(GetRandomBlock()),
+	grid(Grid())
 {
 	InitAudioDevice();  // Initialize the audio device
 	music = LoadMusicStream("sounds/music.mp3");  // Load the game music
@@ -28,14 +30,12 @@ Game::Game():
 	clearSound = LoadSound("Sounds/clear.mp3");  // Load the sound for clearing lines
 }
 
-
 Game::~Game() {
 	UnloadMusicStream(music);
 	UnloadSound(rotateSound);
 	UnloadSound(clearSound);
 	CloseAudioDevice();
 }
-
 
 /**
  * @brief Returns a random block from the available blocks.
@@ -78,19 +78,32 @@ vector<Block> Game::GetAllBlocks() {
 void Game::Draw() {
 	grid.Draw();
 	currentBlock.Draw(11, 11);
+
+	int x, y;
 	switch (nextBlock.id) {
-	case 3:
-		nextBlock.Draw(255, 290);
+		case 3:
+			x = 255; y = 290;
 		break;
-	case 4:
-		nextBlock.Draw(255, 270);
+		case 4:
+			x = 255; y = 270;
 		break;
-	default:
-		nextBlock.Draw(270, 270);
+		default:
+			x = 270; y = 270;
 	}
+	nextBlock.Draw(x, y);
 }
 
+bool Game::IsGameOver () const {
+	return gameState == GAME_OVER;
+}
 
+bool Game::IsGamePaused () const {
+	return gameState == GAME_PAUSED;
+}
+
+bool Game::IsGamePlaying () const {
+	return gameState == GAME_PLAYING;
+}
 /**
  * @brief Handles user input during the game.
  *
@@ -117,9 +130,11 @@ void Game::HandleInput() {
 		{KEY_O, &Game::OptionsMenu}
 	};
 
+	mousePosition = GetMousePosition();
+
 	const int keyPressed = GetKeyPressed();  // Get the key pressed by the user
-	if (gameOver && keyPressed != 0) {
-		gameOver = false;
+	if (IsGameOver() && keyPressed != 0) {
+		gameState = GAME_PLAYING;
 		Reset();
 	}
 
@@ -138,19 +153,18 @@ void Game::HandleDownBlockMove() {
 }
 
 void Game::TogglePause() {
-	if (!gamePaused) {
+	if (IsGamePlaying()) {
 		PauseMusicStream(music);
+		gameState = GAME_PAUSED;
 	}
-	else {
+	else if (IsGamePaused()) {
 		ResumeMusicStream(music);
+		gameState = GAME_PLAYING;
 	}
-		
-	// If pause = true -> false, if pause = false -> true
-	gamePaused = !gamePaused;
 }
 
 void Game::MoveBlockLeft() {
-	if (!gameOver && !gamePaused) {
+	if (IsGamePlaying()) {
 		currentBlock.Move(0, -1);
 		if (IsBlockOutside() || BlockFits() == false) {
 			currentBlock.Move(0, 1);
@@ -159,7 +173,7 @@ void Game::MoveBlockLeft() {
 }
 
 void Game::MoveBlockRigth() {
-	if (!gameOver && !gamePaused) {
+	if (IsGamePlaying()) {
 		currentBlock.Move(0, 1);
 		if (IsBlockOutside() || BlockFits() == false) {
 			currentBlock.Move(0, -1);
@@ -168,7 +182,7 @@ void Game::MoveBlockRigth() {
 }
 
 void Game::MoveBlockDown() {
-	if (!gameOver && !gamePaused) {
+	if (IsGamePlaying()) {
 		currentBlock.Move(1, 0);
 		if (IsBlockOutside() || BlockFits() == false) {
 			currentBlock.Move(-1, 0);
@@ -184,18 +198,15 @@ void Game::LockBlock() {
 	}
 	currentBlock = nextBlock;
 	if (BlockFits() == false) {
-		gameOver = true;
+		gameState = GAME_OVER;
 		StopMusicStream(music);
 	}
 	nextBlock = GetRandomBlock();
-	const int rowsCleared = grid.ClearFullRows();
-	if (rowsCleared > 0) {
+	if (const int rowsCleared = grid.ClearFullRows(); rowsCleared > 0) {
 		PlaySound(clearSound);
 		UpdateScore(rowsCleared, 0);
 	}
 }
-
-
 
 /**
  * @brief Adjusts the font size of the score and game over text based on the current score.
@@ -205,8 +216,7 @@ void Game::LockBlock() {
  * Otherwise, it sets the font size to their initial values.
  */
 void Game::getScoreFontSize() {
-	const int digits = static_cast<int>(floor(log10(score))) + 1;
-	if (digits >= 7) {
+	if (const int digits = static_cast<int>(floor(log10(score))) + 1; digits >= 7) {
 		const auto floatDigits = static_cast<float>(digits);
 		scoreFontSize = 40.0f - floatDigits;
 		gameOverFontSize = 34.0f - floatDigits;
@@ -218,7 +228,7 @@ void Game::getScoreFontSize() {
 }
 
 void Game::RotateBlock() {
-	if (!gameOver && !gamePaused) {
+	if (IsGamePlaying()) {
 		currentBlock.Rotate();
 		if (IsBlockOutside() || BlockFits() == false) {
 			currentBlock.UndoRotation();
@@ -231,7 +241,7 @@ void Game::RotateBlock() {
 
 bool Game::IsBlockOutside() {
 	vector<Position> tiles = currentBlock.GetCellPositions();
-	for (const Position item : tiles) { // NOLINT(*-use-anyofallof)
+	for (const Position item: tiles) {  // NOLINT(*-use-anyofallof)
 		if (grid.IsCellOutside(item.row, item.column)) {
 			return true;
 		}
@@ -254,11 +264,11 @@ void Game::Reset() {
 	blocks = GetAllBlocks();
 	currentBlock = GetRandomBlock();
 	nextBlock = GetRandomBlock();
-	gamePaused = false;
 	maxScoreReached = false;
 	score = 0;
 	StopMusicStream(music);
-	PlayMusicStream(music); // This will play the music again							
+	PlayMusicStream(music); // This will play the music again
+	gameState = GAME_PLAYING;
 }
 
 

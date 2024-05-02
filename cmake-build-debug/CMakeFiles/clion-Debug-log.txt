@@ -8,64 +8,13 @@ CMake Deprecation Warning:
   use the cmake-file-api(7) to view CMake-generated project build trees.
 
 
--- The C compiler identification is GNU 13.2.0
--- The CXX compiler identification is GNU 13.2.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: C:/mingw64/bin/gcc.exe - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: C:/mingw64/bin/g++.exe - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
 -- Running vcpkg install
 Detecting compiler hash for triplet x64-windows...
 Compiler found: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.39.33519/bin/Hostx64/x64/cl.exe
 Detecting compiler hash for triplet x64-mingw-dynamic...
 Compiler found: C:/mingw64/bin/x86_64-w64-mingw32-g++.exe
-The following packages will be built and installed:
-    raylib[core,use-audio]:x64-mingw-dynamic@5.0 -- D:\repos\vcpkg\buildtrees\versioning_\versions\raylib\7cf5ce249c066d11ea5afe9ed15972663992c0f2
-  * vcpkg-cmake:x64-windows@2024-04-18 -- D:\repos\vcpkg\buildtrees\versioning_\versions\vcpkg-cmake\a10a94e8d0071ed4804d40d0f0f0c5e4e7180afd
-  * vcpkg-cmake-config:x64-windows@2022-02-06#1 -- D:\repos\vcpkg\buildtrees\versioning_\versions\vcpkg-cmake-config\8d54cc4f487d51b655abec5f9c9c3f86ca83311f
-Additional packages (*) will be modified to complete this operation.
-Restored 2 package(s) from C:\Users\camio\AppData\Local\vcpkg\archives in 174 ms. Use --debug to see more details.
-Installing 1/3 vcpkg-cmake-config:x64-windows@2022-02-06#1...
-Elapsed time to handle vcpkg-cmake-config:x64-windows: 14.1 ms
-vcpkg-cmake-config:x64-windows package ABI: d6cd8925406c0a15c4ab0d99288b6fe87e980f3acd81b120c3964756b8e058fc
-Installing 2/3 vcpkg-cmake:x64-windows@2024-04-18...
-Elapsed time to handle vcpkg-cmake:x64-windows: 11.9 ms
-vcpkg-cmake:x64-windows package ABI: c86f2cfa08409a17115b1e67cb25415e956e08123e369be17c876679e8d1d5aa
-Installing 3/3 raylib[core,use-audio]:x64-mingw-dynamic@5.0...
-Building raylib[core,use-audio]:x64-mingw-dynamic@5.0...
-D:\repos\vcpkg\triplets\community\x64-mingw-dynamic.cmake: info: loaded community triplet from here. Community triplets are not built in the curated registry and are thus less likely to succeed.
-D:\repos\vcpkg\buildtrees\versioning_\versions\raylib\7cf5ce249c066d11ea5afe9ed15972663992c0f2: info: installing overlay port from here
--- Using cached raysan5-raylib-5.0.tar.gz.
--- Cleaning sources at D:/repos/vcpkg/buildtrees/raylib/src/5.0-24e38c87d8.clean. Use --editable to skip cleaning for the packages you specify.
--- Extracting source D:/repos/vcpkg/downloads/raysan5-raylib-5.0.tar.gz
--- Using source at D:/repos/vcpkg/buildtrees/raylib/src/5.0-24e38c87d8.clean
--- Found external ninja('1.11.1').
--- Configuring x64-mingw-dynamic
--- Building x64-mingw-dynamic-dbg
--- Building x64-mingw-dynamic-rel
--- Fixing pkgconfig file: D:/repos/vcpkg/packages/raylib_x64-mingw-dynamic/lib/pkgconfig/raylib.pc
--- Using cached msys2-mingw-w64-x86_64-pkgconf-1~2.2.0-1-any.pkg.tar.zst.
--- Using cached msys2-msys2-runtime-3.4.10-4-x86_64.pkg.tar.zst.
--- Using msys root at D:/repos/vcpkg/downloads/tools/msys2/d33df895d441a36d
--- Fixing pkgconfig file: D:/repos/vcpkg/packages/raylib_x64-mingw-dynamic/debug/lib/pkgconfig/raylib.pc
--- Installing: D:/repos/vcpkg/packages/raylib_x64-mingw-dynamic/share/raylib/copyright
--- Performing post-build validation
-warning: Detected outdated dynamic CRT in the following files:
-  D:\repos\vcpkg\packages\raylib_x64-mingw-dynamic\debug\bin\libraylib.dll:msvcrt.dll
-  D:\repos\vcpkg\packages\raylib_x64-mingw-dynamic\bin\libraylib.dll:msvcrt.dll
-To inspect the dll files, use:
-  dumpbin.exe /dependents mylibfile.dll
-error: Found 1 post-build check problem(s). To submit these ports to curated catalogs, please first correct the portfile: D:\repos\vcpkg\buildtrees\versioning_\versions\raylib\7cf5ce249c066d11ea5afe9ed15972663992c0f2\portfile.cmake
-Stored binaries in 1 destinations in 1.1 s.
-Elapsed time to handle raylib:x64-mingw-dynamic: 1.5 min
-raylib:x64-mingw-dynamic package ABI: 9f505802c198c3236d4335e57c10c3e77984a1f1896f448bdfff8e7934f75fab
-Total install time: 1.5 min
+All requested packages are currently installed.
+Total install time: 2.1 us
 raylib provides CMake targets:
 
   # this is heuristically generated, and may not be correct
@@ -78,7 +27,6 @@ raylib provides pkg-config modules:
   raylib
 
 -- Running vcpkg install - done
--- Found raylib: D:/Code/C++/Projects/Tetris-Cpp/cmake-build-debug/vcpkg_installed/x64-mingw-dynamic/debug/lib/libraylib.dll.a  
--- Configuring done (106.5s)
+-- Configuring done (11.6s)
 -- Generating done (0.0s)
 -- Build files have been written to: D:/Code/C++/Projects/Tetris-Cpp/cmake-build-debug

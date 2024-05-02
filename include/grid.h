@@ -10,13 +10,13 @@ public:
 	Grid();
 	void Initialize();	
 	void Draw() const;
-	bool IsCellOutside(int row, int column) const;
-	bool isCellEmpty(int row, int column) const;
+	[[nodiscard]] bool IsCellOutside(int row, int column) const;
+	[[nodiscard]] bool isCellEmpty(int row, int column) const;
 	int ClearFullRows();
 	int grid[20][10]{};
 
 private:
-	bool IsRowFull(int row) const;
+	[[nodiscard]] bool IsRowFull(int row) const;
 	void ClearRow(int row);
 	void MoveRowDown(int row, int numRows);
 	int numRows;

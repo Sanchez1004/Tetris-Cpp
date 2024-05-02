@@ -1,14 +1,10 @@
 #pragma once
-#include <stdio.h>
 #include "../include/game.h"
-#define RAYLIB_CXX_STANDARD_MAIN
 #include "raylib.h"
-#include "../include/colors.h"
-#include "../include/game.h"
 
 class UserInterface {
 public:
-	UserInterface(Game* gameInstance, Font gameFont);
+	UserInterface(Game* gameInstance, const Font &gameFont);
 	void DrawComponents();
 
 private:

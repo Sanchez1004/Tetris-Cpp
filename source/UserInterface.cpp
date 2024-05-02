@@ -1,4 +1,8 @@
 #include "../include/UserInterface.h"
+#include "../include/colors.h"
+#include "../include/game.h"
+#include <cstdio>
+#include <string>
 
 /**
  * @brief Constructs a new UserInterface object.
@@ -9,7 +13,7 @@
  * @param gameInstance A pointer to the Game object. This is the game instance for which the UI is being created.
  * @param gameFont The font to be used for drawing text in the UI.
  */
-UserInterface::UserInterface(Game* gameInstance, Font gameFont) : font(gameFont), game(gameInstance) { }
+UserInterface::UserInterface(Game* gameInstance, const Font &gameFont) : font(gameFont), game(gameInstance) { }
 
 
 /**
@@ -81,7 +85,7 @@ void UserInterface::DrawBasicComponents() {
 	DrawUIElementTextMiddle(font, "OPTIONS(O)", { 315, 460, 180, 48 }, 34.0f, WHITE);
 
 	DrawUIElementTextMiddle(font, "PAUSE(T)", { 315, 511, 180, 48 }, 34.0f, WHITE);
-	if (game->gamePaused == true && !game->gameOver) {
+	if (game->IsGamePaused()) {
 		DrawTextEx(font, "GAME PAUSED\nPRESS[T]\nTO CONTINUE", { 64,220 }, 34, 2, WHITE);
 	}
 }
@@ -123,7 +127,7 @@ void UserInterface::DrawScoreComponent() {
 	}
 
 	// Display "GAME OVER" when the gama ends
-	if (game->gameOver) {
+	if (game->IsGameOver()) {
 		const std::string totalScoreMessage = std::string("TOTAL SCORE: ") + scoreText;
 
 		/*  This helps to get the size of the "totalScoreMessage" and automatically get moved

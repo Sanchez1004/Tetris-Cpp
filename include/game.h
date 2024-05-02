@@ -1,10 +1,13 @@
 #pragma once
 #include "grid.h"
 #include "../source/blocks.cpp"
-#define RAYLIB_CXX_STANDARD_MAIN
 #include "raylib.h"
-#include <random>
-#include <map>
+
+enum GameState {
+	GAME_PLAYING,
+	GAME_PAUSED,
+	GAME_OVER
+};
 
 using std::vector;
 
@@ -18,19 +21,21 @@ public:
 	void getScoreFontSize();
 	void HandleDownBlockMove();
 	void MoveBlockDown();
-	bool gameOver;
-	bool gamePaused;
+	[[nodiscard]] bool IsGameOver() const;
+	[[nodiscard]] bool IsGamePaused() const;
+	[[nodiscard]] bool IsGamePlaying() const;
 	bool maxScoreReached;
 	float scoreFontSize;
 	float gameOverFontSize;
 	int score;
 	Music music{};
-	//UI ui;
+	Vector2 mousePosition;
+	GameState gameState;
 
 private:
 	void TogglePause();
 	void RotateBlock();	
-	void MoveBlockLeft(); 
+	void MoveBlockLeft();
 	void MoveBlockRigth();
 	void LockBlock();
 	void Reset();
