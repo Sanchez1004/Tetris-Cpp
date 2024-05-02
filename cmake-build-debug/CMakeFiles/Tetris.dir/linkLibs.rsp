@@ -1,0 +1,1 @@
+ "vcpkg_installed/x64-mingw-dynamic/debug/lib/libraylib.dll.a" -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
