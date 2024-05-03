@@ -113,11 +113,26 @@ CMakeFiles/Tetris.dir/source/blocks.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Tetris.dir/source/blocks.cpp.s"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Code\C++\Projects\Tetris-Cpp\source\blocks.cpp -o CMakeFiles\Tetris.dir\source\blocks.cpp.s
 
+CMakeFiles/Tetris.dir/source/button.cpp.obj: CMakeFiles/Tetris.dir/flags.make
+CMakeFiles/Tetris.dir/source/button.cpp.obj: CMakeFiles/Tetris.dir/includes_CXX.rsp
+CMakeFiles/Tetris.dir/source/button.cpp.obj: D:/Code/C++/Projects/Tetris-Cpp/source/button.cpp
+CMakeFiles/Tetris.dir/source/button.cpp.obj: CMakeFiles/Tetris.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Tetris.dir/source/button.cpp.obj"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Tetris.dir/source/button.cpp.obj -MF CMakeFiles\Tetris.dir\source\button.cpp.obj.d -o CMakeFiles\Tetris.dir\source\button.cpp.obj -c D:\Code\C++\Projects\Tetris-Cpp\source\button.cpp
+
+CMakeFiles/Tetris.dir/source/button.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Tetris.dir/source/button.cpp.i"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Code\C++\Projects\Tetris-Cpp\source\button.cpp > CMakeFiles\Tetris.dir\source\button.cpp.i
+
+CMakeFiles/Tetris.dir/source/button.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Tetris.dir/source/button.cpp.s"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Code\C++\Projects\Tetris-Cpp\source\button.cpp -o CMakeFiles\Tetris.dir\source\button.cpp.s
+
 CMakeFiles/Tetris.dir/source/colors.cpp.obj: CMakeFiles/Tetris.dir/flags.make
 CMakeFiles/Tetris.dir/source/colors.cpp.obj: CMakeFiles/Tetris.dir/includes_CXX.rsp
 CMakeFiles/Tetris.dir/source/colors.cpp.obj: D:/Code/C++/Projects/Tetris-Cpp/source/colors.cpp
 CMakeFiles/Tetris.dir/source/colors.cpp.obj: CMakeFiles/Tetris.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Tetris.dir/source/colors.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Tetris.dir/source/colors.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Tetris.dir/source/colors.cpp.obj -MF CMakeFiles\Tetris.dir\source\colors.cpp.obj.d -o CMakeFiles\Tetris.dir\source\colors.cpp.obj -c D:\Code\C++\Projects\Tetris-Cpp\source\colors.cpp
 
 CMakeFiles/Tetris.dir/source/colors.cpp.i: cmake_force
@@ -132,7 +147,7 @@ CMakeFiles/Tetris.dir/source/game.cpp.obj: CMakeFiles/Tetris.dir/flags.make
 CMakeFiles/Tetris.dir/source/game.cpp.obj: CMakeFiles/Tetris.dir/includes_CXX.rsp
 CMakeFiles/Tetris.dir/source/game.cpp.obj: D:/Code/C++/Projects/Tetris-Cpp/source/game.cpp
 CMakeFiles/Tetris.dir/source/game.cpp.obj: CMakeFiles/Tetris.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Tetris.dir/source/game.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Tetris.dir/source/game.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Tetris.dir/source/game.cpp.obj -MF CMakeFiles\Tetris.dir\source\game.cpp.obj.d -o CMakeFiles\Tetris.dir\source\game.cpp.obj -c D:\Code\C++\Projects\Tetris-Cpp\source\game.cpp
 
 CMakeFiles/Tetris.dir/source/game.cpp.i: cmake_force
@@ -147,7 +162,7 @@ CMakeFiles/Tetris.dir/source/grid.cpp.obj: CMakeFiles/Tetris.dir/flags.make
 CMakeFiles/Tetris.dir/source/grid.cpp.obj: CMakeFiles/Tetris.dir/includes_CXX.rsp
 CMakeFiles/Tetris.dir/source/grid.cpp.obj: D:/Code/C++/Projects/Tetris-Cpp/source/grid.cpp
 CMakeFiles/Tetris.dir/source/grid.cpp.obj: CMakeFiles/Tetris.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Tetris.dir/source/grid.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Tetris.dir/source/grid.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Tetris.dir/source/grid.cpp.obj -MF CMakeFiles\Tetris.dir\source\grid.cpp.obj.d -o CMakeFiles\Tetris.dir\source\grid.cpp.obj -c D:\Code\C++\Projects\Tetris-Cpp\source\grid.cpp
 
 CMakeFiles/Tetris.dir/source/grid.cpp.i: cmake_force
@@ -162,7 +177,7 @@ CMakeFiles/Tetris.dir/source/main.cpp.obj: CMakeFiles/Tetris.dir/flags.make
 CMakeFiles/Tetris.dir/source/main.cpp.obj: CMakeFiles/Tetris.dir/includes_CXX.rsp
 CMakeFiles/Tetris.dir/source/main.cpp.obj: D:/Code/C++/Projects/Tetris-Cpp/source/main.cpp
 CMakeFiles/Tetris.dir/source/main.cpp.obj: CMakeFiles/Tetris.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Tetris.dir/source/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Tetris.dir/source/main.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Tetris.dir/source/main.cpp.obj -MF CMakeFiles\Tetris.dir\source\main.cpp.obj.d -o CMakeFiles\Tetris.dir\source\main.cpp.obj -c D:\Code\C++\Projects\Tetris-Cpp\source\main.cpp
 
 CMakeFiles/Tetris.dir/source/main.cpp.i: cmake_force
@@ -177,7 +192,7 @@ CMakeFiles/Tetris.dir/source/position.cpp.obj: CMakeFiles/Tetris.dir/flags.make
 CMakeFiles/Tetris.dir/source/position.cpp.obj: CMakeFiles/Tetris.dir/includes_CXX.rsp
 CMakeFiles/Tetris.dir/source/position.cpp.obj: D:/Code/C++/Projects/Tetris-Cpp/source/position.cpp
 CMakeFiles/Tetris.dir/source/position.cpp.obj: CMakeFiles/Tetris.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Tetris.dir/source/position.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Tetris.dir/source/position.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Tetris.dir/source/position.cpp.obj -MF CMakeFiles\Tetris.dir\source\position.cpp.obj.d -o CMakeFiles\Tetris.dir\source\position.cpp.obj -c D:\Code\C++\Projects\Tetris-Cpp\source\position.cpp
 
 CMakeFiles/Tetris.dir/source/position.cpp.i: cmake_force
@@ -193,6 +208,7 @@ Tetris_OBJECTS = \
 "CMakeFiles/Tetris.dir/source/UserInterface.cpp.obj" \
 "CMakeFiles/Tetris.dir/source/block.cpp.obj" \
 "CMakeFiles/Tetris.dir/source/blocks.cpp.obj" \
+"CMakeFiles/Tetris.dir/source/button.cpp.obj" \
 "CMakeFiles/Tetris.dir/source/colors.cpp.obj" \
 "CMakeFiles/Tetris.dir/source/game.cpp.obj" \
 "CMakeFiles/Tetris.dir/source/grid.cpp.obj" \
@@ -205,6 +221,7 @@ Tetris_EXTERNAL_OBJECTS =
 D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: CMakeFiles/Tetris.dir/source/UserInterface.cpp.obj
 D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: CMakeFiles/Tetris.dir/source/block.cpp.obj
 D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: CMakeFiles/Tetris.dir/source/blocks.cpp.obj
+D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: CMakeFiles/Tetris.dir/source/button.cpp.obj
 D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: CMakeFiles/Tetris.dir/source/colors.cpp.obj
 D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: CMakeFiles/Tetris.dir/source/game.cpp.obj
 D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: CMakeFiles/Tetris.dir/source/grid.cpp.obj
@@ -215,7 +232,7 @@ D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: vcpkg_installed/x64-mingw-dynamic/de
 D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: CMakeFiles/Tetris.dir/linkLibs.rsp
 D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: CMakeFiles/Tetris.dir/objects1.rsp
 D:/Code/C++/Projects/Tetris-Cpp/Tetris.exe: CMakeFiles/Tetris.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable D:\Code\C++\Projects\Tetris-Cpp\Tetris.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\Code\C++\Projects\Tetris-Cpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable D:\Code\C++\Projects\Tetris-Cpp\Tetris.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Tetris.dir\link.txt --verbose=$(VERBOSE)
 	"C:\Program Files\JetBrains\CLion 2024.1\bin\cmake\win\x64\bin\cmake.exe" -E copy D:/Code/C++/Projects/Tetris-Cpp/cmake-build-debug/vcpkg_installed/x64-mingw-dynamic/bin/libraylib.dll D:/Code/C++/Projects/Tetris-Cpp/libraylib.dll
 

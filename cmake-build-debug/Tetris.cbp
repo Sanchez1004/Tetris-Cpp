@@ -93,6 +93,9 @@
 		<Unit filename="D:/Code/C++/Projects/Tetris-Cpp/source/blocks.cpp">
 			<Option target="Tetris"/>
 		</Unit>
+		<Unit filename="D:/Code/C++/Projects/Tetris-Cpp/source/button.cpp">
+			<Option target="Tetris"/>
+		</Unit>
 		<Unit filename="D:/Code/C++/Projects/Tetris-Cpp/source/colors.cpp">
 			<Option target="Tetris"/>
 		</Unit>

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Code/C++/Projects/Tetris-Cpp/source/UserInterface.cpp" "CMakeFiles/Tetris.dir/source/UserInterface.cpp.obj" "gcc" "CMakeFiles/Tetris.dir/source/UserInterface.cpp.obj.d"
   "D:/Code/C++/Projects/Tetris-Cpp/source/block.cpp" "CMakeFiles/Tetris.dir/source/block.cpp.obj" "gcc" "CMakeFiles/Tetris.dir/source/block.cpp.obj.d"
   "D:/Code/C++/Projects/Tetris-Cpp/source/blocks.cpp" "CMakeFiles/Tetris.dir/source/blocks.cpp.obj" "gcc" "CMakeFiles/Tetris.dir/source/blocks.cpp.obj.d"
+  "D:/Code/C++/Projects/Tetris-Cpp/source/button.cpp" "CMakeFiles/Tetris.dir/source/button.cpp.obj" "gcc" "CMakeFiles/Tetris.dir/source/button.cpp.obj.d"
   "D:/Code/C++/Projects/Tetris-Cpp/source/colors.cpp" "CMakeFiles/Tetris.dir/source/colors.cpp.obj" "gcc" "CMakeFiles/Tetris.dir/source/colors.cpp.obj.d"
   "D:/Code/C++/Projects/Tetris-Cpp/source/game.cpp" "CMakeFiles/Tetris.dir/source/game.cpp.obj" "gcc" "CMakeFiles/Tetris.dir/source/game.cpp.obj.d"
   "D:/Code/C++/Projects/Tetris-Cpp/source/grid.cpp" "CMakeFiles/Tetris.dir/source/grid.cpp.obj" "gcc" "CMakeFiles/Tetris.dir/source/grid.cpp.obj.d"

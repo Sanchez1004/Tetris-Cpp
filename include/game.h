@@ -13,6 +13,7 @@ enum MenuState {
 	MAIN_MENU,
 	GAME,
 	HIGH_SCORES,
+	OPTIONS,
 	EXIT
 };
 
@@ -22,17 +23,18 @@ class Game {
 public:
 	Game();
 	~Game();
-	void Draw();
+	void Reset();
+	void DrawGridAndBlocks();
 	void HandleInput();
 	void OptionsMenu();
 	void getScoreFontSize();
 	void HandleDownBlockMove();
 	void MoveBlockDown();
-	int getScore();
+	[[nodiscard]] int getScore() const;
 	[[nodiscard]] bool IsGameOver() const;
 	[[nodiscard]] bool IsGamePaused() const;
 	[[nodiscard]] bool IsGamePlaying() const;
-	[[nodiscard]]bool GameShouldClose() const;
+	[[nodiscard]] bool GameShouldClose() const;
 	bool maxScoreReached;
 	float scoreFontSize;
 	float gameOverFontSize;
@@ -44,11 +46,10 @@ public:
 private:
 	int score;
 	void TogglePause();
-	void RotateBlock();	
+	void RotateBlock();
 	void MoveBlockLeft();
 	void MoveBlockRigth();
 	void LockBlock();
-	void Reset();
 	void UpdateScore(int linesCleared, int moveDownPoints);
 	bool IsBlockOutside();
 	bool BlockFits();

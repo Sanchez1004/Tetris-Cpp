@@ -34,6 +34,7 @@ static bool EventTriggered() {
 
 int main() {
 	InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Tetris");
+	SetExitKey(0);
 	SetTargetFPS(60);
 
 	const Font font = LoadFontEx("Font/monogram.ttf", 64, nullptr, 0);
@@ -43,26 +44,29 @@ int main() {
 
 	while (!game.GameShouldClose()) {
 		game.HandleInput();
+		UpdateMusicStream(game.music);
+		BeginDrawing();
+		ClearBackground(darkPurple);
+
 		switch (game.currentMenuState) {
 			case MAIN_MENU:
 				game.currentMenuState = GAME;
 				break;
 
 			case GAME:
-				UpdateMusicStream(game.music);
 				if (EventTriggered()) {
 					game.MoveBlockDown();
 				}
-				BeginDrawing();
-				ClearBackground(darkPurple);
-				ui.DrawComponents();
-				EndDrawing();
+				ui.DrawGameInterface();
 				break;
 
 			case HIGH_SCORES:
+
 				break;
-			default: ;
+			default:
+				break;
 		}
+		EndDrawing();
 	}
 	CloseWindow();
 }

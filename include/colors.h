@@ -1,5 +1,5 @@
 #pragma once
-#define RAYLIB_CXX_STANDARD_MAIN
+
 #include "raylib.h"
 #include <vector>
 
@@ -25,6 +25,7 @@ extern const Color purple;
 extern const Color cyan;
 extern const Color blue;
 extern const Color darkPurple;
-extern const Color lightPurple;
+extern const Color gameButtonlightPurple;
+extern const Color gameButtonHoverlightPurple;
 
 vector<Color> GetCellColors();

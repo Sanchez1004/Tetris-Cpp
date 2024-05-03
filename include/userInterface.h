@@ -1,26 +1,28 @@
 #pragma once
 #include "../include/game.h"
+
 #include "raylib.h"
 
 class UserInterface {
 public:
 	UserInterface(Game* gameInstance, const Font &gameFont);
-	void DrawComponents() const;
-	void DrawMenu();
-	void DrawGame();
-	void DrawHighScores();
-
+	void DrawMenuInterface();
+	void DrawGameInterface();
+	void DrawHighScoresInterface();
 
 private:
-	void DrawBasicComponents() const;
-	void DrawScoreComponent() const;
-	void DrawBlocksComponent() const;
+	void DrawGameRestartButton() const;
+
+	void DrawGameOptionsButton() const;
+
+	void DrawGameScoreComponent() const;
+	void DrawGameBlocksComponent() const;
 	void DrawMenuStartButton();
 	void DrawMenuHighScoresButtons();
 	void DrawMenuExitButton();
 
-	static void DrawUIElementTextAbove(const Font &font, const char* text, Rectangle rect, float fontSize, Color fontColor);
-	static void DrawUIElementTextMiddle(const Font &font, const char *text, Rectangle rect, float fontSize, Color fontColor);
+	static void DrawGameTextBoxAbove(const Font &font, const char* text, Rectangle rect, float fontSize, Color fontColor);
+	static void DrawGameTextBoxMiddle(const Font &font, const char *text, Rectangle rect, float fontSize, Color fontColor);
 
 	Font font;
 	Game* game;

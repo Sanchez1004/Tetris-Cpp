@@ -200,6 +200,30 @@ source/blocks.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/source/blocks.cpp.s
 .PHONY : source/blocks.cpp.s
 
+source/button.obj: source/button.cpp.obj
+.PHONY : source/button.obj
+
+# target to build an object file
+source/button.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/source/button.cpp.obj
+.PHONY : source/button.cpp.obj
+
+source/button.i: source/button.cpp.i
+.PHONY : source/button.i
+
+# target to preprocess a source file
+source/button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/source/button.cpp.i
+.PHONY : source/button.cpp.i
+
+source/button.s: source/button.cpp.s
+.PHONY : source/button.s
+
+# target to generate assembly for a file
+source/button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tetris.dir\build.make CMakeFiles/Tetris.dir/source/button.cpp.s
+.PHONY : source/button.cpp.s
+
 source/colors.obj: source/colors.cpp.obj
 .PHONY : source/colors.obj
 
@@ -338,6 +362,9 @@ help:
 	@echo ... source/blocks.obj
 	@echo ... source/blocks.i
 	@echo ... source/blocks.s
+	@echo ... source/button.obj
+	@echo ... source/button.i
+	@echo ... source/button.s
 	@echo ... source/colors.obj
 	@echo ... source/colors.i
 	@echo ... source/colors.s

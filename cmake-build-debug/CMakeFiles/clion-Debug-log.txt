@@ -14,7 +14,7 @@ Compiler found: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools
 Detecting compiler hash for triplet x64-mingw-dynamic...
 Compiler found: C:/mingw64/bin/x86_64-w64-mingw32-g++.exe
 All requested packages are currently installed.
-Total install time: 4.6 us
+Total install time: 1.8 us
 raylib provides CMake targets:
 
   # this is heuristically generated, and may not be correct
@@ -27,6 +27,6 @@ raylib provides pkg-config modules:
   raylib
 
 -- Running vcpkg install - done
--- Configuring done (22.4s)
--- Generating done (0.2s)
+-- Configuring done (8.7s)
+-- Generating done (0.0s)
 -- Build files have been written to: D:/Code/C++/Projects/Tetris-Cpp/cmake-build-debug

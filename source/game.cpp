@@ -15,10 +15,10 @@ Game::Game():
 	maxScoreReached(false),
 	scoreFontSize(INITIAL_SCORE_FONT_SIZE),
 	gameOverFontSize(INITIAL_GAME_OVER_FONT_SIZE),
-	score(0),
 	mousePosition(GetMousePosition()),
 	gameState(GAME_PLAYING),
 	currentMenuState(MAIN_MENU),
+	score(0),
 	blocks(GetAllBlocks()),
 	currentBlock(GetRandomBlock()),
 	nextBlock(GetRandomBlock()),
@@ -76,22 +76,26 @@ vector<Block> Game::GetAllBlocks() {
 	return { IBlock(), JBlock(), LBlock(), OBlock(), SBlock(), TBlock(), ZBlock() };
 }
 
-void Game::Draw() {
+void Game::DrawGridAndBlocks() {
+	static const std::map<int, std::pair<int, int>> blockIdToCoordinates = {
+		{3, {255, 290}},
+		{4, {255, 270}},
+	};
+
 	grid.Draw();
 	currentBlock.Draw(11, 11);
 
-	int x, y;
-	switch (nextBlock.id) {
-		case 3:
-			x = 255; y = 290;
-		break;
-		case 4:
-			x = 255; y = 270;
-		break;
-		default:
-			x = 270; y = 270;
+	const auto blockCoordinatesIterator = blockIdToCoordinates.find(nextBlock.id);
+
+	int nextBlockXCoordinate = 270;
+	int nextBlockYCoordinate = 270;
+
+	if (blockCoordinatesIterator != blockIdToCoordinates.end()) {
+		nextBlockXCoordinate = blockCoordinatesIterator->second.first;
+		nextBlockYCoordinate = blockCoordinatesIterator->second.second;
 	}
-	nextBlock.Draw(x, y);
+
+	nextBlock.Draw(nextBlockXCoordinate, nextBlockYCoordinate);
 }
 
 bool Game::IsGameOver () const {
@@ -132,7 +136,6 @@ void Game::HandleInput() {
 		{KEY_UP, &Game::RotateBlock},  // Rotate the block when the UP key or 'W' is pressed
 		{KEY_W, &Game::RotateBlock},
 		{KEY_R, &Game::Reset},  // Reset the game when the 'R' key is pressed
-		{KEY_T, &Game::TogglePause},  // Toggle pause when the 'T' key is pressed
 		{KEY_ESCAPE, &Game::OptionsMenu}
 	};
 
@@ -150,7 +153,7 @@ void Game::HandleInput() {
 }
 
 void Game::OptionsMenu() {
-	currentMenuState = EXIT;
+	TogglePause();
 }
 
 void Game::HandleDownBlockMove() {
@@ -233,7 +236,7 @@ void Game::getScoreFontSize() {
 	}
 }
 
-int Game::getScore() {
+int Game::getScore() const {
 	return score;
 }
 
@@ -276,9 +279,9 @@ void Game::Reset() {
 	nextBlock = GetRandomBlock();
 	maxScoreReached = false;
 	score = 0;
+	gameState = GAME_PLAYING;
 	StopMusicStream(music);
 	PlayMusicStream(music); // This will play the music again
-	gameState = GAME_PLAYING;
 }
 
 
