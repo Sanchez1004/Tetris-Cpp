@@ -6,14 +6,15 @@
 enum GameState {
 	GAME_PLAYING,
 	GAME_PAUSED,
-	GAME_OVER
+	GAME_OVER,
+	GAME_SETTINGS
 };
 
 enum MenuState {
 	MAIN_MENU,
 	GAME,
 	HIGH_SCORES,
-	OPTIONS,
+	MENU_SETTINGS,
 	EXIT
 };
 
@@ -25,11 +26,15 @@ public:
 	~Game();
 	void Reset();
 	void DrawGridAndBlocks();
+
+	void HandlePlayedMusic() const;
+
 	void HandleInput();
 	void OptionsMenu();
 	void getScoreFontSize();
 	void HandleDownBlockMove();
 	void MoveBlockDown();
+	void MenuCloseGame();
 	[[nodiscard]] int getScore() const;
 	[[nodiscard]] bool IsGameOver() const;
 	[[nodiscard]] bool IsGamePaused() const;
@@ -38,10 +43,11 @@ public:
 	bool maxScoreReached;
 	float scoreFontSize;
 	float gameOverFontSize;
-	Music music{};
 	Vector2 mousePosition;
 	GameState gameState;
 	MenuState currentMenuState;
+	Music MenuMusic{};
+	Music GameMusic{};
 
 private:
 	int score;

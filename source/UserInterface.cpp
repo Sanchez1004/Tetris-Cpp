@@ -43,25 +43,25 @@ void UserInterface::DrawGameTextBoxMiddle(const Font &font, const char *text, co
 	DrawTextEx(font, text, { textX, textY }, fontSize, 2, fontColor);
 }
 
-
-
-void UserInterface::DrawMenuInterface() {
-
+void UserInterface::DrawMenuInterface() const {
+	DrawTextEx(font, "TETRIS",{110, 40}, 100, 2, RAYWHITE);
+	DrawMenuStartButton();
+	DrawMenuHighScoresButtons();
+	DrawMenuHighScoresButtons();
+	DrawMenuSettingsButton();
+	DrawMenuExitButton();
+	DrawMenuUserButton();
 }
 
-void UserInterface::DrawGameInterface() {
+void UserInterface::DrawGameInterface() const {
 	DrawGameRestartButton();
 	DrawGameOptionsButton();
-	// DrawGameTextBoxMiddle(font, "PAUSE(T)", { 315, 511, 180, 48 }, 34.0f, WHITE);
-	// if (game->IsGamePaused()) {
-	// 	DrawTextEx(font, "GAME PAUSED\n\nPRESS[T]\n\nTO CONTINUE", { 64,220 }, 34, 2, WHITE);
-	// }
 	DrawGameScoreComponent();
 	DrawGameBlocksComponent();
+	DrawMenuUserButton();
 }
 
-void UserInterface::DrawHighScoresInterface(){
-
+void UserInterface::DrawHighScoresInterface() const {
 }
 
 void UserInterface::DrawGameRestartButton() const {
@@ -76,7 +76,7 @@ void UserInterface::DrawGameRestartButton() const {
 }
 
 void UserInterface::DrawGameOptionsButton() const {
-	auto optionsButton = Button(Rectangle{315, 562, 180, 40}, "OPTIONS[ESC]");
+	auto optionsButton = Button(Rectangle{315, 562, 180, 40}, "SETTINGS[ESC]");
 
 	optionsButton.UpdateButtonState(game->mousePosition);
 	optionsButton.DrawButton(font, RAYWHITE, 28.0f, gameButtonlightPurple, gameButtonHoverlightPurple);
@@ -124,14 +124,55 @@ void UserInterface::DrawGameBlocksComponent() const {
 	game->DrawGridAndBlocks();
 }
 
-void UserInterface::DrawMenuStartButton() {
-
+void UserInterface::DrawMenuStartButton() const {
+	// ReSharper disable once CppTooWideScopeInitStatement
+	const Button startButton = CreateMenuCenteredButton(250, 300, "START GAME");
+	if(startButton.isClicked) game->currentMenuState = GAME;
 }
 
-void UserInterface::DrawMenuHighScoresButtons() {
 
+void UserInterface::DrawMenuHighScoresButtons() const {
+	// ReSharper disable once CppTooWideScopeInitStatement
+	const Button highScoresButton = CreateMenuCenteredButton(250, 230, "HIGH SCORES");
+	if(highScoresButton.isClicked) game->currentMenuState = HIGH_SCORES;
 }
 
-void UserInterface::DrawMenuExitButton() {
+void UserInterface::DrawMenuSettingsButton() const {
+	// ReSharper disable once CppTooWideScopeInitStatement
+	const Button settingsButton = CreateMenuCenteredButton(250, 160, "SETTINGS");
+	if(settingsButton.isClicked) game->currentMenuState = MENU_SETTINGS;
+}
 
+void UserInterface::DrawMenuExitButton() const {
+	// ReSharper disable once CppTooWideScopeInitStatement
+	const Button exitButton = CreateMenuCenteredButton(250, 90, "EXIT");
+	if(exitButton.isClicked) game->currentMenuState = EXIT;
+}
+
+void UserInterface::DrawMenuUserButton() const {
+	// ReSharper disable once CppTooWideScopeInitStatement
+	auto userButton = Button(Rectangle{460, 10, 30, 30}, "US");
+	userButton.UpdateButtonState(game->mousePosition);
+	userButton.DrawButton(font, RAYWHITE, 20, gameButtonlightPurple, gameButtonHoverlightPurple);
+}
+
+Vector2 UserInterface::GetCenteredPositionComparedWindow(const float xPosition, const float yPosition) {
+	const auto windowWidth = static_cast<float>(GetScreenWidth());
+	const auto windowHeight = static_cast<float>(GetScreenHeight());
+
+	Vector2 buttonPosition = {(windowHeight - xPosition) / 2, windowHeight - yPosition};
+	buttonPosition.x = (windowWidth - xPosition) / 2;
+	buttonPosition.y = (windowHeight - yPosition);
+
+	return buttonPosition;
+}
+
+Button UserInterface::CreateMenuCenteredButton(const float xPosition, const float yPosition, const std::string &text) const {
+	const Vector2 buttonPosition = GetCenteredPositionComparedWindow(xPosition, yPosition);
+	auto button = Button(Rectangle{buttonPosition.x, buttonPosition.y, 250, 60}, text);
+
+	button.UpdateButtonState(game->mousePosition);
+	button.DrawButton(font, RAYWHITE, 40.0f, gameButtonlightPurple, gameButtonHoverlightPurple);
+
+	return button;
 }

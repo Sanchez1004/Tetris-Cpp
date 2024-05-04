@@ -40,17 +40,17 @@ int main() {
 	const Font font = LoadFontEx("Font/monogram.ttf", 64, nullptr, 0);
 
 	auto game = Game();
-	auto ui = UserInterface(&game, font);
+	const auto ui = UserInterface(&game, font);
 
 	while (!game.GameShouldClose()) {
 		game.HandleInput();
-		UpdateMusicStream(game.music);
 		BeginDrawing();
 		ClearBackground(darkPurple);
+		game.HandlePlayedMusic();
 
 		switch (game.currentMenuState) {
 			case MAIN_MENU:
-				game.currentMenuState = GAME;
+				ui.DrawMenuInterface();
 				break;
 
 			case GAME:
@@ -61,7 +61,8 @@ int main() {
 				break;
 
 			case HIGH_SCORES:
-
+				break;
+			case MENU_SETTINGS:
 				break;
 			default:
 				break;

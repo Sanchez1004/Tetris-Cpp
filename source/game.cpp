@@ -25,14 +25,16 @@ Game::Game():
 	grid(Grid())
 {
 	InitAudioDevice();  // Initialize the audio device
-	music = LoadMusicStream("sounds/music.mp3");  // Load the game music
-	PlayMusicStream(music);  // Start playing the game music
-	rotateSound = LoadSound("Sounds/rotate.mp3");  // Load the sound for block rotation
-	clearSound = LoadSound("Sounds/clear.mp3");  // Load the sound for clearing lines
+	MenuMusic = LoadMusicStream("assets/sounds/MenuMusic.mp3");
+	GameMusic = LoadMusicStream("assets/sounds/GameMusic.mp3");
+	PlayMusicStream(MenuMusic);
+	rotateSound = LoadSound("assets/sounds/rotate.mp3");  // Load the sound for block rotation
+	clearSound = LoadSound("assets/sounds/clear.mp3");  // Load the sound for clearing lines
 }
 
 Game::~Game() {
-	UnloadMusicStream(music);
+	UnloadMusicStream(MenuMusic);
+	UnloadMusicStream(GameMusic);
 	UnloadSound(rotateSound);
 	UnloadSound(clearSound);
 	CloseAudioDevice();
@@ -98,6 +100,21 @@ void Game::DrawGridAndBlocks() {
 	nextBlock.Draw(nextBlockXCoordinate, nextBlockYCoordinate);
 }
 
+void Game::HandlePlayedMusic() const {
+	switch (currentMenuState) {
+		case MAIN_MENU:
+			UpdateMusicStream(MenuMusic);
+			PlayMusicStream(MenuMusic);
+			break;
+		case GAME || HIGH_SCORES:
+			UpdateMusicStream(GameMusic);
+			PlayMusicStream(GameMusic);
+			break;
+		default:
+			break;
+	}
+}
+
 bool Game::IsGameOver () const {
 	return gameState == GAME_OVER;
 }
@@ -108,10 +125,6 @@ bool Game::IsGamePaused () const {
 
 bool Game::IsGamePlaying () const {
 	return gameState == GAME_PLAYING;
-}
-
-bool Game::GameShouldClose() const {
-	return WindowShouldClose() || currentMenuState == EXIT;
 }
 
 /**
@@ -126,30 +139,56 @@ bool Game::GameShouldClose() const {
  * If the game is over and any key is pressed, the game is reset.
  */
 void Game::HandleInput() {
-	static const std::map<int, void(Game::*)()> keyHandlers = {
-		{KEY_LEFT, &Game::MoveBlockLeft},  // Move the block left when the LEFT key or 'A' is pressed
+	static const std::map<int, void(Game::*)()> gameKeyHandlers = {
+		{KEY_LEFT, &Game::MoveBlockLeft},
 		{KEY_A, &Game::MoveBlockLeft},
-		{KEY_RIGHT, &Game::MoveBlockRigth},  // Move the block right when the RIGHT key or 'D' is pressed
+		{KEY_RIGHT, &Game::MoveBlockRigth},
 		{KEY_D, &Game::MoveBlockRigth},
-		{KEY_DOWN, &Game::HandleDownBlockMove},  // Move the block down when the DOWN key or 'S' is pressed
+		{KEY_DOWN, &Game::HandleDownBlockMove},
 		{KEY_S, &Game::HandleDownBlockMove},
-		{KEY_UP, &Game::RotateBlock},  // Rotate the block when the UP key or 'W' is pressed
+		{KEY_UP, &Game::RotateBlock},
 		{KEY_W, &Game::RotateBlock},
-		{KEY_R, &Game::Reset},  // Reset the game when the 'R' key is pressed
+		{KEY_R, &Game::Reset},
 		{KEY_ESCAPE, &Game::OptionsMenu}
+	};
+
+	static const std::map<int, void(Game::*)()> menuKeyHandlers = {
+		{KEY_ESCAPE, &Game::MenuCloseGame}
 	};
 
 	mousePosition = GetMousePosition();
 
-	const int keyPressed = GetKeyPressed();  // Get the key pressed by the user
+	const int keyPressed = GetKeyPressed();
 	if (IsGameOver() && keyPressed != 0) {
 		gameState = GAME_PLAYING;
 		Reset();
 	}
 
-	if (keyHandlers.count(keyPressed) > 0) {
-		(this->*keyHandlers.at(keyPressed))();  // Execute the game action corresponding to the key pressed
+	std::map<int, void(Game::*)()> keyHandlers;
+
+	switch(currentMenuState) {
+		case GAME:
+			keyHandlers = gameKeyHandlers;
+			break;
+		case MAIN_MENU:
+			keyHandlers = menuKeyHandlers;
+			break;
+		case HIGH_SCORES:
+			break;
+		default: ;
 	}
+
+	if (keyHandlers.count(keyPressed) > 0) {
+		(this->*keyHandlers.at(keyPressed))();
+	}
+}
+
+bool Game::GameShouldClose() const {
+	return WindowShouldClose() || currentMenuState == EXIT;
+}
+
+void Game::MenuCloseGame() {
+	SetExitKey(KEY_ESCAPE);
 }
 
 void Game::OptionsMenu() {
@@ -163,11 +202,11 @@ void Game::HandleDownBlockMove() {
 
 void Game::TogglePause() {
 	if (IsGamePlaying()) {
-		PauseMusicStream(music);
+		PauseMusicStream(GameMusic);
 		gameState = GAME_PAUSED;
 	}
 	else if (IsGamePaused()) {
-		ResumeMusicStream(music);
+		ResumeMusicStream(GameMusic);
 		gameState = GAME_PLAYING;
 	}
 }
@@ -208,7 +247,7 @@ void Game::LockBlock() {
 	currentBlock = nextBlock;
 	if (BlockFits() == false) {
 		gameState = GAME_OVER;
-		StopMusicStream(music);
+		StopMusicStream(GameMusic);
 	}
 	nextBlock = GetRandomBlock();
 	if (const int rowsCleared = grid.ClearFullRows(); rowsCleared > 0) {
@@ -280,8 +319,8 @@ void Game::Reset() {
 	maxScoreReached = false;
 	score = 0;
 	gameState = GAME_PLAYING;
-	StopMusicStream(music);
-	PlayMusicStream(music); // This will play the music again
+	StopMusicStream(GameMusic);
+	PlayMusicStream(GameMusic);
 }
 
 
