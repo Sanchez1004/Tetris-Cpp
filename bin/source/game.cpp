@@ -173,9 +173,7 @@ void Game::HandleInput() {
 		case MAIN_MENU:
 			keyHandlers = menuKeyHandlers;
 			break;
-		case HIGH_SCORES:
-			break;
-		default: ;
+		default: break;
 	}
 
 	if (keyHandlers.count(keyPressed) > 0) {
@@ -187,8 +185,10 @@ bool Game::GameShouldClose() const {
 	return WindowShouldClose() || currentMenuState == EXIT;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void Game::MenuCloseGame() {
 	SetExitKey(KEY_ESCAPE);
+
 }
 
 void Game::OptionsMenu() {

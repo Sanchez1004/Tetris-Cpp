@@ -1,3 +1,0 @@
-D:/Code/C++/Projects/Tetris-Cpp/cmake-build-debug/CMakeFiles/Tetris.dir
-D:/Code/C++/Projects/Tetris-Cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Code/C++/Projects/Tetris-Cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -24,10 +24,10 @@ else()
 endif()
 
 # Adds the 'include' directory to the list of directories to be searched for header files.
-include_directories(include)
+include_directories(bin/include)
 
 # Retrieves all .cpp files in the 'source' directory.
-file(GLOB SOURCES "source/*.cpp")
+file(GLOB SOURCES "bin/source/*.cpp")
 
 # Add executable with all .cpp files found in /source
 add_executable(Tetris ${SOURCES})

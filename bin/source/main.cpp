@@ -37,7 +37,7 @@ int main() {
 	SetExitKey(0);
 	SetTargetFPS(60);
 
-	const Font font = LoadFontEx("Font/monogram.ttf", 64, nullptr, 0);
+	const Font font = LoadFontEx("assets/font/monogram.ttf", 64, nullptr, 0);
 
 	auto game = Game();
 	const auto ui = UserInterface(&game, font);
