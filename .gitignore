@@ -35,6 +35,5 @@
 cmake-build-debug/
 .idea/
 
-# Raylib lib "This one updated every time the project is compiled"
-/libraylib.dll!/cmake-build-debug/
-
+# JSON
+*.json
