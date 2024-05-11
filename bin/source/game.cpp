@@ -11,25 +11,24 @@ constexpr int INITIAL_GAME_OVER_FONT_SIZE = 32;
  * This constructor initializes the game grid, the list of all blocks, and the current and next blocks.
  * It also sets the initial game state and score, and loads the game audio.
  */
-Game::Game():
-	maxScoreReached(false),
-	scoreFontSize(INITIAL_SCORE_FONT_SIZE),
-	gameOverFontSize(INITIAL_GAME_OVER_FONT_SIZE),
-	mousePosition(GetMousePosition()),
-	gameState(GAME_PLAYING),
-	currentMenuState(MAIN_MENU),
-	score(0),
-	blocks(GetAllBlocks()),
-	currentBlock(GetRandomBlock()),
-	nextBlock(GetRandomBlock()),
-	grid(Grid())
-{
-	InitAudioDevice();  // Initialize the audio device
+Game::Game(): maxScoreReached(false),
+              scoreFontSize(INITIAL_SCORE_FONT_SIZE),
+              gameOverFontSize(INITIAL_GAME_OVER_FONT_SIZE),
+              mousePosition(GetMousePosition()),
+              gameState(GAME_PLAYING),
+              currentMenuState(MAIN_MENU),
+              score(0),
+			  closeGameConfirmation(false),
+              blocks(GetAllBlocks()),
+              currentBlock(GetRandomBlock()),
+              nextBlock(GetRandomBlock()),
+              grid(Grid()) {
+	InitAudioDevice(); // Initialize the audio device
 	MenuMusic = LoadMusicStream("assets/sounds/MenuMusic.mp3");
 	GameMusic = LoadMusicStream("assets/sounds/GameMusic.mp3");
 	PlayMusicStream(MenuMusic);
-	rotateSound = LoadSound("assets/sounds/rotate.mp3");  // Load the sound for block rotation
-	clearSound = LoadSound("assets/sounds/clear.mp3");  // Load the sound for clearing lines
+	rotateSound = LoadSound("assets/sounds/rotate.mp3"); // Load the sound for block rotation
+	clearSound = LoadSound("assets/sounds/clear.mp3"); // Load the sound for clearing lines
 }
 
 Game::~Game() {
@@ -185,14 +184,25 @@ bool Game::GameShouldClose() const {
 	return WindowShouldClose() || currentMenuState == EXIT;
 }
 
+
 // ReSharper disable once CppMemberFunctionMayBeStatic
+// ReSharper disable once CppMemberFunctionMayBeConst
 void Game::MenuCloseGame() {
-	SetExitKey(KEY_ESCAPE);
+	// NOLINT(*-make-member-function-const)
 
 }
 
+
 void Game::OptionsMenu() {
 	TogglePause();
+}
+
+bool Game::GetCloseGameConfirmation() const {
+	return closeGameConfirmation;
+}
+
+void Game::SetCloseGameConfirmation(const bool confirmation) {
+	closeGameConfirmation = confirmation;
 }
 
 void Game::HandleDownBlockMove() {

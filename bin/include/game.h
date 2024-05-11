@@ -40,6 +40,8 @@ public:
 	[[nodiscard]] bool IsGamePaused() const;
 	[[nodiscard]] bool IsGamePlaying() const;
 	[[nodiscard]] bool GameShouldClose() const;
+	[[nodiscard]] bool GetCloseGameConfirmation() const;
+	void SetCloseGameConfirmation(bool confirmation);
 	bool maxScoreReached;
 	float scoreFontSize;
 	float gameOverFontSize;
@@ -59,6 +61,7 @@ private:
 	void UpdateScore(int linesCleared, int moveDownPoints);
 	bool IsBlockOutside();
 	bool BlockFits();
+	bool closeGameConfirmation;
 	static vector<Block> GetAllBlocks();
 	vector<Block> blocks;
 	Block GetRandomBlock();

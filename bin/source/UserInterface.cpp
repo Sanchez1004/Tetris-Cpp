@@ -146,7 +146,16 @@ void UserInterface::DrawMenuSettingsButton() const {
 void UserInterface::DrawMenuExitButton() const {
 	// ReSharper disable once CppTooWideScopeInitStatement
 	const Button exitButton = CreateMenuCenteredButton(250, 90, "EXIT");
-	if(exitButton.isClicked) game->currentMenuState = EXIT;
+	if(exitButton.isClicked) {
+		if(DrawExitConfirmation()) {
+			game->currentMenuState = EXIT;
+		}
+	}
+
+}
+
+bool UserInterface::DrawExitConfirmation() const {
+
 }
 
 void UserInterface::DrawMenuUserButton() const {
