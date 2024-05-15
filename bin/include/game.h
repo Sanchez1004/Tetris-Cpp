@@ -3,14 +3,14 @@
 #include "../source/blocks.cpp"
 #include "raylib.h"
 
-enum GameState {
+enum class GameState {
 	GAME_PLAYING,
 	GAME_PAUSED,
 	GAME_OVER,
 	GAME_SETTINGS
 };
 
-enum MenuState {
+enum class MenuState {
 	MAIN_MENU,
 	GAME,
 	HIGH_SCORES,
@@ -26,9 +26,7 @@ public:
 	~Game();
 	void Reset();
 	void DrawGridAndBlocks();
-
 	void HandlePlayedMusic() const;
-
 	void HandleInput();
 	void OptionsMenu();
 	void getScoreFontSize();
@@ -42,17 +40,18 @@ public:
 	[[nodiscard]] bool GameShouldClose() const;
 	[[nodiscard]] bool GetCloseGameConfirmation() const;
 	void SetCloseGameConfirmation(bool confirmation);
+
+
 	bool maxScoreReached;
 	float scoreFontSize;
 	float gameOverFontSize;
 	Vector2 mousePosition;
 	GameState gameState;
 	MenuState currentMenuState;
-	Music MenuMusic{};
-	Music GameMusic{};
+	Music menuMusic{};
+	Music gameMusic{};
 
 private:
-	int score;
 	void TogglePause();
 	void RotateBlock();
 	void MoveBlockLeft();
@@ -61,10 +60,12 @@ private:
 	void UpdateScore(int linesCleared, int moveDownPoints);
 	bool IsBlockOutside();
 	bool BlockFits();
-	bool closeGameConfirmation;
 	static vector<Block> GetAllBlocks();
-	vector<Block> blocks;
 	Block GetRandomBlock();
+
+	bool closeGameConfirmation;
+	vector<Block> blocks;
+	int score;
 	Block currentBlock;
 	Block nextBlock;
 	Grid grid;

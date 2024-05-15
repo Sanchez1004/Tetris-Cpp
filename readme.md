@@ -13,7 +13,7 @@ a good option to understand how to install packages and dependencies in a projec
 -
 
 Configured with a CMakeLists file that handles the dependencies from the game,
-there are two options to compile it, use VCPKG to install the dependencies or install RAYLIB framework
+there are two options to compile it on windows, use VCPKG to install the dependencies or install RAYLIB framework
 and configured the CMakeLists paths to the directory where the framework was installed.
 
 - **VCPKG:**

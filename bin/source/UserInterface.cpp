@@ -126,29 +126,29 @@ void UserInterface::DrawGameBlocksComponent() const {
 
 void UserInterface::DrawMenuStartButton() const {
 	// ReSharper disable once CppTooWideScopeInitStatement
-	const Button startButton = CreateMenuCenteredButton(250, 300, "START GAME");
-	if(startButton.isClicked) game->currentMenuState = GAME;
+	const Button startButton = CreateMenuCenteredButton(300, "START GAME");
+	if(startButton.isClicked) game->currentMenuState = MenuState::GAME;
 }
 
 
 void UserInterface::DrawMenuHighScoresButtons() const {
 	// ReSharper disable once CppTooWideScopeInitStatement
-	const Button highScoresButton = CreateMenuCenteredButton(250, 230, "HIGH SCORES");
-	if(highScoresButton.isClicked) game->currentMenuState = HIGH_SCORES;
+	const Button highScoresButton = CreateMenuCenteredButton(230, "HIGH SCORES");
+	if(highScoresButton.isClicked) game->currentMenuState = MenuState::HIGH_SCORES;
 }
 
 void UserInterface::DrawMenuSettingsButton() const {
 	// ReSharper disable once CppTooWideScopeInitStatement
-	const Button settingsButton = CreateMenuCenteredButton(250, 160, "SETTINGS");
-	if(settingsButton.isClicked) game->currentMenuState = MENU_SETTINGS;
+	const Button settingsButton = CreateMenuCenteredButton(160, "SETTINGS");
+	if(settingsButton.isClicked) game->currentMenuState = MenuState::MENU_SETTINGS;
 }
 
 void UserInterface::DrawMenuExitButton() const {
 	// ReSharper disable once CppTooWideScopeInitStatement
-	const Button exitButton = CreateMenuCenteredButton(250, 90, "EXIT");
+	const Button exitButton = CreateMenuCenteredButton(90, "EXIT");
 	if(exitButton.isClicked) {
 		if(DrawExitConfirmation()) {
-			game->currentMenuState = EXIT;
+			game->currentMenuState = MenuState::EXIT;
 		}
 	}
 
@@ -165,19 +165,20 @@ void UserInterface::DrawMenuUserButton() const {
 	userButton.DrawButton(font, RAYWHITE, 20, gameButtonlightPurple, gameButtonHoverlightPurple);
 }
 
-Vector2 UserInterface::GetCenteredPositionComparedWindow(const float xPosition, const float yPosition) {
+Vector2 UserInterface::GetCenteredPositionComparedWindow(const float yPosition) {
 	const auto windowWidth = static_cast<float>(GetScreenWidth());
 	const auto windowHeight = static_cast<float>(GetScreenHeight());
 
-	Vector2 buttonPosition = {(windowHeight - xPosition) / 2, windowHeight - yPosition};
-	buttonPosition.x = (windowWidth - xPosition) / 2;
+	Vector2 buttonPosition = {(windowHeight - (windowWidth / 2)) / 2, windowHeight - yPosition};
+	buttonPosition.x = (windowWidth - (windowWidth / 2)) / 2;
 	buttonPosition.y = (windowHeight - yPosition);
 
 	return buttonPosition;
 }
 
-Button UserInterface::CreateMenuCenteredButton(const float xPosition, const float yPosition, const std::string &text) const {
-	const Vector2 buttonPosition = GetCenteredPositionComparedWindow(xPosition, yPosition);
+Button UserInterface::CreateMenuCenteredButton(const float yPosition,
+                                               const std::string &text) const {
+	const Vector2 buttonPosition = GetCenteredPositionComparedWindow(yPosition);
 	auto button = Button(Rectangle{buttonPosition.x, buttonPosition.y, 250, 60}, text);
 
 	button.UpdateButtonState(game->mousePosition);

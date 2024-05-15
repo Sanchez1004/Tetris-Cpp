@@ -49,21 +49,24 @@ int main() {
 		game.HandlePlayedMusic();
 
 		switch (game.currentMenuState) {
-			case MAIN_MENU:
+			case MenuState::MAIN_MENU:
 				ui.DrawMenuInterface();
 				break;
 
-			case GAME:
+			case MenuState::GAME:
 				if (EventTriggered()) {
 					game.MoveBlockDown();
 				}
 				ui.DrawGameInterface();
 				break;
 
-			case HIGH_SCORES:
+			case MenuState::HIGH_SCORES:
 				break;
-			case MENU_SETTINGS:
+
+			case MenuState::MENU_SETTINGS:
+				game.HandlePlayedMusic();
 				break;
+
 			default:
 				break;
 		}

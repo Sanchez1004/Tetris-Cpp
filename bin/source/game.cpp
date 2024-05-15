@@ -15,25 +15,25 @@ Game::Game(): maxScoreReached(false),
               scoreFontSize(INITIAL_SCORE_FONT_SIZE),
               gameOverFontSize(INITIAL_GAME_OVER_FONT_SIZE),
               mousePosition(GetMousePosition()),
-              gameState(GAME_PLAYING),
-              currentMenuState(MAIN_MENU),
+              gameState(GameState::GAME_PLAYING),
+              currentMenuState(MenuState::MAIN_MENU),
+              closeGameConfirmation(false),
+			  blocks(GetAllBlocks()),
               score(0),
-			  closeGameConfirmation(false),
-              blocks(GetAllBlocks()),
               currentBlock(GetRandomBlock()),
               nextBlock(GetRandomBlock()),
               grid(Grid()) {
 	InitAudioDevice(); // Initialize the audio device
-	MenuMusic = LoadMusicStream("assets/sounds/MenuMusic.mp3");
-	GameMusic = LoadMusicStream("assets/sounds/GameMusic.mp3");
-	PlayMusicStream(MenuMusic);
+	menuMusic = LoadMusicStream("assets/sounds/MenuMusic.mp3");
+	gameMusic = LoadMusicStream("assets/sounds/GameMusic.mp3");
+	PlayMusicStream(menuMusic);
 	rotateSound = LoadSound("assets/sounds/rotate.mp3"); // Load the sound for block rotation
 	clearSound = LoadSound("assets/sounds/clear.mp3"); // Load the sound for clearing lines
 }
 
 Game::~Game() {
-	UnloadMusicStream(MenuMusic);
-	UnloadMusicStream(GameMusic);
+	UnloadMusicStream(menuMusic);
+	UnloadMusicStream(gameMusic);
 	UnloadSound(rotateSound);
 	UnloadSound(clearSound);
 	CloseAudioDevice();
@@ -101,13 +101,14 @@ void Game::DrawGridAndBlocks() {
 
 void Game::HandlePlayedMusic() const {
 	switch (currentMenuState) {
-		case MAIN_MENU:
-			UpdateMusicStream(MenuMusic);
-			PlayMusicStream(MenuMusic);
+		case MenuState::MAIN_MENU:
+			UpdateMusicStream(menuMusic);
+			PlayMusicStream(menuMusic);
 			break;
-		case GAME || HIGH_SCORES:
-			UpdateMusicStream(GameMusic);
-			PlayMusicStream(GameMusic);
+		case MenuState::GAME:
+			StopMusicStream(menuMusic);
+			UpdateMusicStream(gameMusic);
+			PlayMusicStream(gameMusic);
 			break;
 		default:
 			break;
@@ -115,15 +116,15 @@ void Game::HandlePlayedMusic() const {
 }
 
 bool Game::IsGameOver () const {
-	return gameState == GAME_OVER;
+	return gameState == GameState::GAME_OVER;
 }
 
 bool Game::IsGamePaused () const {
-	return gameState == GAME_PAUSED;
+	return gameState == GameState::GAME_PAUSED;
 }
 
 bool Game::IsGamePlaying () const {
-	return gameState == GAME_PLAYING;
+	return gameState == GameState::GAME_PLAYING;
 }
 
 /**
@@ -159,17 +160,17 @@ void Game::HandleInput() {
 
 	const int keyPressed = GetKeyPressed();
 	if (IsGameOver() && keyPressed != 0) {
-		gameState = GAME_PLAYING;
+		gameState = GameState::GAME_PLAYING;
 		Reset();
 	}
 
 	std::map<int, void(Game::*)()> keyHandlers;
 
 	switch(currentMenuState) {
-		case GAME:
+		case MenuState::GAME:
 			keyHandlers = gameKeyHandlers;
 			break;
-		case MAIN_MENU:
+		case MenuState::MAIN_MENU:
 			keyHandlers = menuKeyHandlers;
 			break;
 		default: break;
@@ -181,7 +182,7 @@ void Game::HandleInput() {
 }
 
 bool Game::GameShouldClose() const {
-	return WindowShouldClose() || currentMenuState == EXIT;
+	return WindowShouldClose() || currentMenuState == MenuState::EXIT;
 }
 
 
@@ -212,12 +213,12 @@ void Game::HandleDownBlockMove() {
 
 void Game::TogglePause() {
 	if (IsGamePlaying()) {
-		PauseMusicStream(GameMusic);
-		gameState = GAME_PAUSED;
+		PauseMusicStream(gameMusic);
+		gameState = GameState::GAME_PAUSED;
 	}
 	else if (IsGamePaused()) {
-		ResumeMusicStream(GameMusic);
-		gameState = GAME_PLAYING;
+		ResumeMusicStream(gameMusic);
+		gameState = GameState::GAME_PLAYING;
 	}
 }
 
@@ -256,8 +257,8 @@ void Game::LockBlock() {
 	}
 	currentBlock = nextBlock;
 	if (BlockFits() == false) {
-		gameState = GAME_OVER;
-		StopMusicStream(GameMusic);
+		gameState = GameState::GAME_OVER;
+		StopMusicStream(gameMusic);
 	}
 	nextBlock = GetRandomBlock();
 	if (const int rowsCleared = grid.ClearFullRows(); rowsCleared > 0) {
@@ -328,9 +329,9 @@ void Game::Reset() {
 	nextBlock = GetRandomBlock();
 	maxScoreReached = false;
 	score = 0;
-	gameState = GAME_PLAYING;
-	StopMusicStream(GameMusic);
-	PlayMusicStream(GameMusic);
+	gameState = GameState::GAME_PLAYING;
+	StopMusicStream(gameMusic);
+	PlayMusicStream(gameMusic);
 }
 
 
