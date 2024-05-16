@@ -22,12 +22,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3f44ce78-324b-407e-957e-be791da1e190" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/include/audio_manager.h" beforeDir="false" afterPath="$PROJECT_DIR$/bin/include/audio_manager.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/include/game.h" beforeDir="false" afterPath="$PROJECT_DIR$/bin/include/game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/include/userInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/bin/include/userInterface.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/source/UserInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/bin/source/UserInterface.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/source/audio_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/bin/source/audio_manager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/source/game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/bin/source/game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/source/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/bin/source/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +96,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -117,7 +121,7 @@
       <workItem from="1715691773795" duration="6198000" />
       <workItem from="1715732053412" duration="4439000" />
       <workItem from="1715802323068" duration="4457000" />
-      <workItem from="1715875338432" duration="992000" />
+      <workItem from="1715875338432" duration="2489000" />
     </task>
     <servers />
   </component>

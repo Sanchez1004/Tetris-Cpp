@@ -13,31 +13,25 @@ constexpr int INITIAL_GAME_OVER_FONT_SIZE = 32;
  * This constructor initializes the game grid, the list of all blocks, and the current and next blocks.
  * It also sets the initial game state and score, and loads the game audio.
  */
-Game::Game(): maxScoreReached(false),
-              scoreFontSize(INITIAL_SCORE_FONT_SIZE),
-              gameOverFontSize(INITIAL_GAME_OVER_FONT_SIZE),
-              mousePosition(GetMousePosition()),
-              gameState(GameState::GAME_PLAYING),
-              currentMenuState(MenuState::MAIN_MENU),
-              closeGameConfirmation(false),
-              blocks(GetAllBlocks()),
-              score(0),
-              currentBlock(GetRandomBlock()),
-              nextBlock(GetRandomBlock()),
-              grid(Grid()) {
-    InitAudioDevice(); // Initialize the audio device
-    menuMusic = LoadMusicStream("assets/sounds/MenuMusic.mp3");
-    gameMusic = LoadMusicStream("assets/sounds/GameMusic.mp3");
-    PlayMusicStream(menuMusic);
-    rotateSound = LoadSound("assets/sounds/rotate.mp3"); // Load the sound for block rotation
-    clearSound = LoadSound("assets/sounds/clear.mp3"); // Load the sound for clearing lines
+Game::Game(): maxScoreReached(false), scoreFontSize(INITIAL_SCORE_FONT_SIZE),
+              gameOverFontSize(INITIAL_GAME_OVER_FONT_SIZE), mousePosition(GetMousePosition()),
+              gameState(GameState::GAME_PLAYING), currentMenuState(MenuState::MAIN_MENU), closeGameConfirmation(false),
+              blocks(GetAllBlocks()), score(0), currentBlock(GetRandomBlock()), nextBlock(GetRandomBlock()),
+              grid(Grid()), audioManager(AudioManager()) {
+    InitAudioDevice();
+    // menuMusic = LoadMusicStream("assets/sounds/MenuMusic.mp3");
+    // gameMusic = LoadMusicStream("assets/sounds/GameMusic.mp3");
+    // PlayMusicStream(menuMusic);
+    // rotateSound = LoadSound("assets/sounds/rotate.mp3"); // Load the sound for block rotation
+    // clearSound = LoadSound("assets/sounds/clear.mp3"); // Load the sound for clearing lines
 }
 
 Game::~Game() {
-    UnloadMusicStream(menuMusic);
-    UnloadMusicStream(gameMusic);
-    UnloadSound(rotateSound);
-    UnloadSound(clearSound);
+    // UnloadMusicStream(menuMusic);
+    // UnloadMusicStream(gameMusic);
+    // UnloadSound(rotateSound);
+    // UnloadSound(clearSound);
+    audioManager.~AudioManager();
     CloseAudioDevice();
 }
 
@@ -101,21 +95,21 @@ void Game::DrawGridAndBlocks() {
     nextBlock.Draw(nextBlockXCoordinate, nextBlockYCoordinate);
 }
 
-void Game::HandlePlayedMusic() const {
-    switch (currentMenuState) {
-        case MenuState::MAIN_MENU:
-            UpdateMusicStream(menuMusic);
-            PlayMusicStream(menuMusic);
-            break;
-        case MenuState::GAME:
-            StopMusicStream(menuMusic);
-            UpdateMusicStream(gameMusic);
-            PlayMusicStream(gameMusic);
-            break;
-        default:
-            break;
-    }
-}
+// void Game::HandlePlayedMusic() const {
+//     switch (currentMenuState) {
+//         case MenuState::MAIN_MENU:
+//             UpdateMusicStream(menuMusic);
+//             PlayMusicStream(menuMusic);
+//             break;
+//         case MenuState::GAME:
+//             StopMusicStream(menuMusic);
+//             UpdateMusicStream(gameMusic);
+//             PlayMusicStream(gameMusic);
+//             break;
+//         default:
+//             break;
+//     }
+// }
 
 bool Game::IsGameOver() const {
     return gameState == GameState::GAME_OVER;
@@ -197,14 +191,6 @@ void Game::MenuCloseGame() {
 
 void Game::OptionsMenu() {
     TogglePause();
-}
-
-bool Game::GetCloseGameConfirmation() const {
-    return closeGameConfirmation;
-}
-
-void Game::SetCloseGameConfirmation(const bool confirmation) {
-    closeGameConfirmation = confirmation;
 }
 
 void Game::HandleDownBlockMove() {

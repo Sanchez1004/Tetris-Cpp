@@ -153,6 +153,7 @@ void UserInterface::DrawMenuExitButton() const {
 }
 
 bool UserInterface::DrawExitConfirmation() const {
+    return true ;
 }
 
 void UserInterface::DrawMenuUserButton() const {

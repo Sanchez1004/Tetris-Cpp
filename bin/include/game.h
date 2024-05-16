@@ -1,4 +1,5 @@
 #pragma once
+#include "audio_manager.h"
 #include "grid.h"
 #include "../source/blocks.cpp"
 #include "raylib.h"
@@ -26,7 +27,7 @@ public:
     ~Game();
     void Reset();
     void DrawGridAndBlocks();
-    void HandlePlayedMusic() const;
+    // void HandlePlayedMusic() const;
     void HandleInput();
     void OptionsMenu();
     void getScoreFontSize();
@@ -38,9 +39,6 @@ public:
     [[nodiscard]] bool IsGamePaused() const;
     [[nodiscard]] bool IsGamePlaying() const;
     [[nodiscard]] bool GameShouldClose() const;
-    [[nodiscard]] bool GetCloseGameConfirmation() const;
-    void SetCloseGameConfirmation(bool confirmation);
-
 
     bool maxScoreReached;
     float scoreFontSize;
@@ -48,8 +46,8 @@ public:
     Vector2 mousePosition;
     GameState gameState;
     MenuState currentMenuState;
-    Music menuMusic{};
-    Music gameMusic{};
+    // Music menuMusic{};
+    // Music gameMusic{};
 
 private:
     void TogglePause();
@@ -69,6 +67,7 @@ private:
     Block currentBlock;
     Block nextBlock;
     Grid grid;
-    Sound rotateSound{};
-    Sound clearSound{};
+    AudioManager audioManager;
+    // Sound rotateSound{};
+    // Sound clearSound{};
 };

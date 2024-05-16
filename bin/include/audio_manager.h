@@ -5,7 +5,17 @@
 
 #include <map>
 #include <raylib.h>
-#include <string>
+
+enum class MusicId {
+    MENU_MUSIC,
+    GAME_MUSIC,
+
+};
+
+enum class SoundId {
+    ROTATE,
+    CLEAR_ROW
+};
 
 enum class AudioState {
     MENU_MUSIC,
@@ -18,13 +28,18 @@ public:
     AudioManager();
     ~AudioManager();
 
-    void PlayMusic(AudioState audioState);
+    void PlayMusic();
     void StopMusic();
-    void PlaySoundEffect(const std::string& soundId);
+    void PauseMusic();
+    void ResumeMusic();
+    void PlaySoundEffect(SoundId soundId);
+    void SetAudioState(AudioState actualState);
+    [[nodiscard]] AudioState GetAudioState() const;
 
 private:
-    std::map<std::string, Music> musicAssets_;
-    std::map<std::string, Sound> soundEffects_;
+    std::map<MusicId, Music> musicAssets_;
+    std::map<SoundId, Sound> soundEffects_;
+    AudioState currentAudioState;
 };
 
 #endif //AUDIO_MANAGER_H
