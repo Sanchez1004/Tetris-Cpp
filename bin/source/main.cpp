@@ -25,52 +25,52 @@ double lastUpdateTime = 0;
  * @return bool: True if the event is triggered, False otherwise.
  */
 static bool EventTriggered() {
-	if (const double currentTime = GetTime(); currentTime - lastUpdateTime >= 0.2) {
-		lastUpdateTime = currentTime;
-		return true;
-	}
-	return false;
+    if (const double currentTime = GetTime(); currentTime - lastUpdateTime >= 0.2) {
+        lastUpdateTime = currentTime;
+        return true;
+    }
+    return false;
 }
 
 int main() {
-	InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Tetris");
-	SetExitKey(0);
-	SetTargetFPS(60);
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Tetris");
+    SetExitKey(0);
+    SetTargetFPS(60);
 
-	const Font font = LoadFontEx("assets/font/monogram.ttf", 64, nullptr, 0);
+    const Font font = LoadFontEx("assets/font/monogram.ttf", 64, nullptr, 0);
 
-	auto game = Game();
-	const auto ui = UserInterface(&game, font);
+    auto game = Game();
+    const auto ui = UserInterface(&game, font);
 
-	while (!game.GameShouldClose()) {
-		game.HandleInput();
-		BeginDrawing();
-		ClearBackground(darkPurple);
-		game.HandlePlayedMusic();
+    while (!game.GameShouldClose()) {
+        game.HandleInput();
+        BeginDrawing();
+        ClearBackground(darkPurple);
+        game.HandlePlayedMusic();
 
-		switch (game.currentMenuState) {
-			case MenuState::MAIN_MENU:
-				ui.DrawMenuInterface();
-				break;
+        switch (game.currentMenuState) {
+            case MenuState::MAIN_MENU:
+                ui.DrawMenuInterface();
+                break;
 
-			case MenuState::GAME:
-				if (EventTriggered()) {
-					game.MoveBlockDown();
-				}
-				ui.DrawGameInterface();
-				break;
+            case MenuState::GAME:
+                if (EventTriggered()) {
+                    game.MoveBlockDown();
+                }
+                ui.DrawGameInterface();
+                break;
 
-			case MenuState::HIGH_SCORES:
-				break;
+            case MenuState::HIGH_SCORES:
+                break;
 
-			case MenuState::MENU_SETTINGS:
-				game.HandlePlayedMusic();
-				break;
+            case MenuState::MENU_SETTINGS:
+                game.HandlePlayedMusic();
+                break;
 
-			default:
-				break;
-		}
-		EndDrawing();
-	}
-	CloseWindow();
+            default:
+                break;
+        }
+        EndDrawing();
+    }
+    CloseWindow();
 }

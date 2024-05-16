@@ -1,8 +1,11 @@
 #include "../include/audio_manager.h"
 
 AudioManager::AudioManager() {
+    // Here new music can be added to musicAssets_ map
     musicAssets_["menu_music"] = LoadMusicStream("assets/sounds/MenuMusic.mp3");
     musicAssets_["game_music"] = LoadMusicStream("assets/sounds/GameMusic.mp3");
+
+    // Here new sounds can be added to soundEffects_ map
     soundEffects_["rotate"] = LoadSound("assets/sounds/rotate.mp3");
     soundEffects_["clear_row"] = LoadSound("assets/sounds/clear_row.mp3");
 }

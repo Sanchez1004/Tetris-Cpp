@@ -7,28 +7,28 @@
 
 class UserInterface {
 public:
-	UserInterface(Game* gameInstance, const Font &gameFont);
-	void DrawMenuInterface() const;
-	void DrawGameInterface() const;
-	void DrawHighScoresInterface() const;
+    UserInterface(Game *gameInstance, const Font &gameFont);
+    void DrawMenuInterface() const;
+    void DrawGameInterface() const;
+    void DrawHighScoresInterface() const;
 
 private:
-	void DrawGameRestartButton() const;
-	void DrawGameOptionsButton() const;
-	void DrawGameScoreComponent() const;
-	void DrawGameBlocksComponent() const;
-	void DrawMenuStartButton() const;
-	void DrawMenuHighScoresButtons() const;
-	void DrawMenuExitButton() const;
-	void DrawMenuUserButton() const;
-	void DrawMenuSettingsButton() const;
-	static void DrawGameTextBoxAbove(const Font &font, const char* text, Rectangle rect, float fontSize, Color fontColor);
-	static void DrawGameTextBoxMiddle(const Font &font, const char *text, Rectangle rect, float fontSize, Color fontColor);
-	static Vector2 GetCenteredPositionComparedWindow(float yPosition);
-
-	[[nodiscard]] Button CreateMenuCenteredButton(float yPosition, const std::string &text) const;
-	[[nodiscard]] bool DrawExitConfirmation() const;
-
-	Font font;
-	Game* game;
+    void DrawGameRestartButton() const;
+    void DrawGameOptionsButton() const;
+    void DrawGameScoreComponent() const;
+    void DrawGameBlocksComponent() const;
+    void DrawMenuStartButton() const;
+    void DrawMenuHighScoresButtons() const;
+    void DrawMenuExitButton() const;
+    void DrawMenuUserButton() const;
+    void DrawMenuSettingsButton() const;
+    static void DrawGameTextBoxAbove(const Font &font, const char *text, Rectangle rect, float fontSize,
+                                     Color fontColor);
+    static void DrawGameTextBoxMiddle(const Font &font, const char *text, Rectangle rect, float fontSize,
+                                      Color fontColor);
+    static Vector2 GetCenteredPositionComparedWindow(float yPosition);
+    [[nodiscard]] Button CreateMenuCenteredButton(float yPosition, const std::string &text) const;
+    [[nodiscard]] bool DrawExitConfirmation() const;
+    Font font;
+    Game *game;
 };
